@@ -1525,6 +1525,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2120265565}
     m_Modifications:
+    - target: {fileID: 1017952253164612554, guid: f72921b30eed50c49b43d85eb49f1af6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9df451dd292bc5442a02a1805914535a, type: 2}
     - target: {fileID: 7436564913576972705, guid: f72921b30eed50c49b43d85eb49f1af6, type: 3}
       propertyPath: m_Name
       value: Ground (13)
