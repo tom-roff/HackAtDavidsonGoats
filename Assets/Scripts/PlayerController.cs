@@ -25,11 +25,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float meleeRange = 2f;
     [SerializeField] private int meleeDamage = 1;
     [SerializeField] private float meleeDelay = 0.5f;
+    [SerializeField] private float knockbackResistance = 3f;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform meleePointRight;
     [SerializeField] private Transform meleePointLeft;
     [SerializeField] private Transform meleePointUp;
     [SerializeField] private Transform meleePointDown;
+    private Vector3 knockbackVelocity;
+    private float knockbackTimeRemaining;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -56,19 +59,26 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        HandleGroundCheck();
-        HandleDash();
-        if (!isDashing)
+        HandleKnockback();
+        
+        // Only process inputs if not in knockback
+        if (knockbackTimeRemaining <= 0)
         {
-            HandleJump();
-            HandleMelee();
-            HandleMovement();
-            ApplyGravity();
+            HandleGroundCheck();
+            HandleDash();
+            if (!isDashing)
+            {
+                HandleJump();
+                HandleMelee();
+                HandleMovement();
+                ApplyGravity();
+            }
+            if (meleeTimer > 0)
+            {
+                meleeTimer -= Time.deltaTime;
+            }
         }
-        if (meleeTimer > 0)
-        {
-            meleeTimer -= Time.deltaTime;
-        }
+        
         HandleZAxis();
 
         // Animation Work
@@ -81,8 +91,6 @@ public class PlayerController : MonoBehaviour
         else{
             playerMesh.transform.rotation = Quaternion.Euler(playerMesh.transform.eulerAngles.x, 270, playerMesh.transform.eulerAngles.z);
         }
-
-
     }
 
     void HandleZAxis()
@@ -266,6 +274,29 @@ public class PlayerController : MonoBehaviour
             {
                 enemy.TakeDamage(meleeDamage);
             }
+        }
+    }
+
+    public void ApplyKnockback(Vector3 direction, float force, float duration)
+    {
+        knockbackVelocity = direction * force;
+        knockbackTimeRemaining = duration;
+    }
+
+    void HandleKnockback()
+    {
+        if (knockbackTimeRemaining > 0)
+        {
+            // Apply knockback movement
+            controller.Move(knockbackVelocity * Time.deltaTime);
+            
+            // Apply gravity during knockback for arc effect
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+            
+            // Decelerate knockback
+            knockbackVelocity = Vector3.Lerp(knockbackVelocity, Vector3.zero, knockbackResistance * Time.deltaTime);
+            knockbackTimeRemaining -= Time.deltaTime;
         }
     }
 }

@@ -6,6 +6,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int maxHealth = 3;
     [SerializeField] protected int contactDamage = 1;
     [SerializeField] protected float moveSpeed = 2f;
+    [SerializeField] private float knockbackForce = 10f;
+    [SerializeField] private float knockbackDuration = 0.2f;
     
     [Header("Health Settings")]
     [SerializeField] protected int healthGiven = 1;
@@ -64,25 +66,29 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider collision)
     {
-        if (other.CompareTag("Player") && damageTimer <= 0)
-        {
-            if (gameManager != null)
-            {
-                gameManager.DamagePlayer(contactDamage);
-                damageTimer = damageCooldown;
-            }
-        }
+        HandlePlayerCollision(collision.GetComponent<Collider>());
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerStay(Collider collision)
+    {
+        HandlePlayerCollision(collision.GetComponent<Collider>());
+    }
+
+    private void HandlePlayerCollision(Collider other)
     {
         if (other.CompareTag("Player") && damageTimer <= 0)
         {
             if (gameManager != null)
             {
+                // Apply damage
                 gameManager.DamagePlayer(contactDamage);
+                
+                // Apply knockback
+                Vector3 knockbackDirection = (other.transform.position - transform.position).normalized;
+                other.GetComponent<PlayerController>()?.ApplyKnockback(knockbackDirection, knockbackForce, knockbackDuration);
+                
                 damageTimer = damageCooldown;
             }
         }
