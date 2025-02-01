@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [Header("Player Stats")]
-    [SerializeField] private int playerMaxHealth = 3;
+    [SerializeField] private int playerMaxHealth = 100;
     [SerializeField] private int playerCurrentHealth;
 
     [Header("Player References")]
@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float respawnDelay = 1f;
     private Vector3 currentCheckpoint;
     private bool isGamePaused;
+
+
+    [SerializeField] private float soulDrainRateInSeconds = 1;
+    //Amount of time before souls start draining
+    [SerializeField] private float timeSafeAtStart = 5;
 
     [Header("Debug")]
     [SerializeField] private bool showDebugInfo;
@@ -72,8 +77,8 @@ public class GameManager : MonoBehaviour
         {
             KillPlayer();
         }
-        
-        player.playerHourglass.GetComponent<HourglassManager>().UpdateSoulMat(playerCurrentHealth,playerMaxHealth);
+        Debug.Log(((playerCurrentHealth/playerMaxHealth)/2f)+.5f);
+        player.playerHourglass.GetComponent<HourglassManager>().UpdateSoulMat(playerCurrentHealth , playerMaxHealth);
     }
 
     public void HealPlayer(int amount)
@@ -174,6 +179,16 @@ public class GameManager : MonoBehaviour
             timeElapsed += Time.deltaTime;
         }
     }
+
+    void Start(){
+        InvokeRepeating("DrainPlayerHealth", timeSafeAtStart, soulDrainRateInSeconds);
+    }
+
+    private void DrainPlayerHealth(){
+        // Damage Player amount of Souls to Drain
+        DamagePlayer(1);
+    }
+
 
     // Getter methods
     public Vector3 GetCurrentCheckpoint() => currentCheckpoint;

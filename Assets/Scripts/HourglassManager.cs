@@ -17,11 +17,15 @@ public class HourglassManager : MonoBehaviour
     public void UpdateSoulMat(int currentSouls, int maxSouls)
     {
         //Set Top Accordingly, .5 - 1 range
-        float topConversion = ((currentSouls/maxSouls)/2f)+.5f;
+
+        float currentSoulFloat = (float)currentSouls;
+        float maxSoulFloat = (float)maxSouls;
+
+        float topConversion = ((currentSoulFloat/maxSoulFloat)/2f)+.5f;
         topMaterial.SetFloat("soulEmptyAmount", topConversion);
 
         //Set Bottom Accordingly 0 - .5
-        float bottomConversion = (currentSouls/maxSouls)/2f;
+        float bottomConversion = .5f - ((currentSoulFloat/maxSoulFloat)/2f);
         bottomMaterial.SetFloat("soulEmptyAmount",bottomConversion);
 
     }
