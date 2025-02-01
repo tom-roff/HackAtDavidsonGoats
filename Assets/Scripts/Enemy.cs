@@ -7,7 +7,10 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int contactDamage = 1;
     [SerializeField] protected float moveSpeed = 2f;
     
-    [SerializeField] protected int currentHealth;
+    [Header("Health Settings")]
+    [SerializeField] protected int healthGiven = 1;
+    protected int currentHealth;
+    
     protected Transform player;
     protected bool facingRight = true;
     protected Vector3 movementDirection = Vector3.right;
@@ -54,6 +57,10 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (gameManager != null)
+        {
+            gameManager.HealPlayer(healthGiven);
+        }
         Destroy(gameObject);
     }
 
@@ -86,7 +93,6 @@ public abstract class Enemy : MonoBehaviour
         facingRight = !facingRight;
         movementDirection *= -1;
         
-        // Flip visual model without affecting collider
         Transform model = transform.Find("Model");
         if (model != null)
         {
