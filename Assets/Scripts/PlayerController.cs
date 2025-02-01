@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashDuration = 0.3f;
     [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float dashDeceleration = 80f;
+    [SerializeField] private int airDashLimit = 1;
+    private int airDashesUsed = 0;
 
     [Header("Combat Settings")]
     [SerializeField] private float meleeRange = 2f;
@@ -93,17 +95,35 @@ public class PlayerController : MonoBehaviour
             dashCooldownTimer -= Time.deltaTime;
         }
 
+        // Reset air dashes when grounded
+        if (isGrounded)
+        {
+            airDashesUsed = 0;
+        }
+
         // Start dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && dashCooldownTimer <= 0)
         {
+            // Check air dash availability
+            if (!isGrounded && airDashesUsed >= airDashLimit)
+            {
+                return;
+            }
+
             isDashing = true;
             dashTimeLeft = dashDuration;
             currentDashSpeed = dashSpeed;
             dashCooldownTimer = dashCooldown;
             velocity.y = 0;
+
+            // Track air dash usage
+            if (!isGrounded)
+            {
+                airDashesUsed++;
+            }
         }
 
-        // Handle ongoing dash
+        // Moved inside HandleDash method
         if (isDashing)
         {
             dashTimeLeft -= Time.deltaTime;
