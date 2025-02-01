@@ -21,7 +21,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int meleeDamage = 1;
     [SerializeField] private float meleeDelay = 0.5f;
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private Transform meleePoint; // Point where melee attack checks start
+    [SerializeField] private Transform meleePointRight;
+    [SerializeField] private Transform meleePointLeft;
+    [SerializeField] private Transform meleePointUp;
+    [SerializeField] private Transform meleePointDown;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -191,12 +194,29 @@ public class PlayerController : MonoBehaviour
 
     void PerformMeleeAttack(Vector3 attackDirection)
     {
-        Debug.DrawRay(meleePoint.position, attackDirection * meleeRange, Color.red, 0.1f);
+        Transform currentMeleePoint = meleePointRight; // Default to right
 
-        // Check for enemies in range
+        // Determine melee point based on direction
+        if (attackDirection == Vector3.up)
+        {
+            currentMeleePoint = meleePointUp;
+        }
+        else if (attackDirection == Vector3.down)
+        {
+            currentMeleePoint = meleePointDown;
+        }
+        else
+        {
+            currentMeleePoint = isFacingRight ? meleePointRight : meleePointLeft;
+        }
+
+        // Visual debug
+        Debug.DrawRay(currentMeleePoint.position, attackDirection * meleeRange, Color.red, 0.1f);
+
+        // Sphere cast from appropriate point
         RaycastHit[] hits = Physics.SphereCastAll(
-            meleePoint.position,
-            0.5f, // Radius of the sphere
+            currentMeleePoint.position,
+            0.5f,
             attackDirection,
             meleeRange,
             enemyLayer
