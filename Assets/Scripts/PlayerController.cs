@@ -41,11 +41,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleGroundCheck();
-        HandleJump();
         HandleDash();
-        HandleMelee();
         if (!isDashing)
         {
+            HandleJump();
+            HandleMelee();
             HandleMovement();
             ApplyGravity();
         }
@@ -136,18 +136,32 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && meleeTimer <= 0) // Left mouse button
         {
-            PerformMeleeAttack();
+            Vector3 attackDirection;
+            
+            // Up attack (LMB + W)
+            if (Input.GetKey(KeyCode.W))
+            {
+                attackDirection = Vector3.up;
+            }
+            // Down attack (LMB + S)
+            else if (Input.GetKey(KeyCode.S))
+            {
+                attackDirection = Vector3.down;
+            }
+            // Regular horizontal attack
+            else
+            {
+                attackDirection = isFacingRight ? Vector3.right : Vector3.left;
+            }
+
+            PerformMeleeAttack(attackDirection);
             meleeTimer = meleeDelay;
         }
     }
 
-    void PerformMeleeAttack()
+
+    void PerformMeleeAttack(Vector3 attackDirection)
     {
-        Debug.Log("Melee");
-        // Calculate attack direction based on facing
-        Vector3 attackDirection = isFacingRight ? Vector3.right : Vector3.left;
-        
-        // Visualize attack range in scene view
         Debug.DrawRay(meleePoint.position, attackDirection * meleeRange, Color.red, 0.1f);
 
         // Check for enemies in range
@@ -167,7 +181,5 @@ public class PlayerController : MonoBehaviour
                 enemy.TakeDamage(meleeDamage);
             }
         }
-
-        // Optional: Add attack animation trigger here
     }
 }
