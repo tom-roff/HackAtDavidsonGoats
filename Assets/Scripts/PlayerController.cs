@@ -6,8 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float jumpForce = 2.5f;
-    [SerializeField] private float gravity = -50f;
+
+    [Header("Jump Settings")]
+    [SerializeField] private float jumpForce = 4f;
+    [SerializeField] private float gravity = -35f;
+    [SerializeField] private float fallMultiplier = 2.2f;
+    [SerializeField] private float maxFallSpeed = -25f;
 
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 40f;
@@ -163,12 +167,25 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            playerAnimator.SetTrigger("Jump");
         }
     }
 
     void ApplyGravity()
     {
-        velocity.y += gravity * Time.deltaTime;
+        // Apply extra gravity when falling
+        if (velocity.y < 0)
+        {
+            velocity.y += gravity * fallMultiplier * Time.deltaTime;
+        }
+        else
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
+        
+        // Clamp fall speed to prevent excessive velocity
+        velocity.y = Mathf.Max(velocity.y, maxFallSpeed);
+        
         controller.Move(velocity * Time.deltaTime);
     }
 
