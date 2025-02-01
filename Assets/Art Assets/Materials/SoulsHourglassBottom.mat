@@ -113,6 +113,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _EmissDivisor: 500
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -133,7 +134,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _scrollSpeed: 0.1
-    - _soulEmptyAmount: 0.19
+    - _soulEmptyAmount: 0.64
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -11,6 +11,9 @@
         },
         {
             "m_Id": "7a264433c88544fe8e859fad3739b182"
+        },
+        {
+            "m_Id": "c07b0418114e4af883a58fdf038c6e79"
         }
     ],
     "m_Keywords": [],
@@ -125,6 +128,9 @@
         },
         {
             "m_Id": "3453236aac9647ec9472afbaf0a21707"
+        },
+        {
+            "m_Id": "ac16448d7c454987ba3edf7e866fb6ce"
         }
     ],
     "m_GroupDatas": [],
@@ -380,6 +386,20 @@
                     "m_Id": "cae4a9acf2384a71978863aaded33430"
                 },
                 "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "ac16448d7c454987ba3edf7e866fb6ce"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "f64665302ab844299ad2d57cef36ad6c"
+                },
+                "m_SlotId": 1
             }
         },
         {
@@ -3047,6 +3067,21 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "a76c919735014c4797b03965fb94eadb",
+    "m_Id": 0,
+    "m_DisplayName": "EmissDivisor",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.UVMaterialSlot",
     "m_ObjectId": "a95fa29ef37b41e4ac73f35ab73a4131",
     "m_Id": 0,
@@ -3132,6 +3167,42 @@
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "ac16448d7c454987ba3edf7e866fb6ce",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 998.0,
+            "y": 719.3333740234375,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "a76c919735014c4797b03965fb94eadb"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "c07b0418114e4af883a58fdf038c6e79"
     }
 }
 
@@ -3521,6 +3592,34 @@
         "w": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "c07b0418114e4af883a58fdf038c6e79",
+    "m_Guid": {
+        "m_GuidSerialized": "664f548c-24c8-420b-b996-a1ce997f764f"
+    },
+    "m_Name": "EmissDivisor",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "EmissDivisor",
+    "m_DefaultReferenceName": "_EmissDivisor",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 500.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
 }
 
 {
@@ -4217,6 +4316,9 @@
         },
         {
             "m_Id": "7a264433c88544fe8e859fad3739b182"
+        },
+        {
+            "m_Id": "c07b0418114e4af883a58fdf038c6e79"
         }
     ]
 }
