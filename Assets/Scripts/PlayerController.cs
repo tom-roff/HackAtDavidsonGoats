@@ -25,11 +25,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float meleeRange = 2f;
     [SerializeField] private int meleeDamage = 1;
     [SerializeField] private float meleeDelay = 0.5f;
+    [SerializeField] private float knockbackResistance = 3f;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform meleePointRight;
     [SerializeField] private Transform meleePointLeft;
     [SerializeField] private Transform meleePointUp;
     [SerializeField] private Transform meleePointDown;
+    private Vector3 knockbackVelocity;
+    private float knockbackTimeRemaining;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -56,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        HandleKnockback();
         HandleGroundCheck();
         HandleDash();
         if (!isDashing)
@@ -266,6 +270,22 @@ public class PlayerController : MonoBehaviour
             {
                 enemy.TakeDamage(meleeDamage);
             }
+        }
+    }
+
+    public void ApplyKnockback(Vector3 direction, float force, float duration)
+    {
+        knockbackVelocity = direction * force;
+        knockbackTimeRemaining = duration;
+    }
+
+    void HandleKnockback()
+    {
+        if (knockbackTimeRemaining > 0)
+        {
+            controller.Move(knockbackVelocity * Time.deltaTime);
+            knockbackVelocity = Vector3.Lerp(knockbackVelocity, Vector3.zero, knockbackResistance * Time.deltaTime);
+            knockbackTimeRemaining -= Time.deltaTime;
         }
     }
 }
