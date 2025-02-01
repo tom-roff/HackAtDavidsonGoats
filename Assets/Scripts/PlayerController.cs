@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     private float meleeTimer;
     private bool isFacingRight = true;
 
+    public GameObject playerHourglass;
+    
+
     void Start()
     {
         controller = GetComponent<CharacterController>();

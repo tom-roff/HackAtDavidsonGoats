@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
             KillPlayer();
         }
         
-        // Optional: Update UI here
+        player.playerHourglass.GetComponent<HourglassManager>().UpdateSoulMat(playerCurrentHealth,playerMaxHealth);
     }
 
     public void HealPlayer(int amount)

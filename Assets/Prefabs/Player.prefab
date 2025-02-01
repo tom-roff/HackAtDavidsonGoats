@@ -167,7 +167,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3569821998090314645}
   m_Father: {fileID: 1189084343632954561}
   m_LocalEulerAnglesHint: {x: 16.7, y: 0, z: 0}
 --- !u!20 &7374088476165367326
@@ -423,3 +424,83 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   meleePoint: {fileID: 5266265637840952763}
+  playerHourglass: {fileID: 4233769153397012783}
+--- !u!1001 &5006403174858035876
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 788945514500424773}
+    m_Modifications:
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 27.112314
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 27.112314
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 27.112314
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.933
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3689999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.0080004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49136296
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.3914226
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.48477918
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6085557
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -77.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 102.163
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203967531494222731, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+      propertyPath: m_Name
+      value: PlayerHourglass
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+--- !u!4 &3569821998090314645 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8426480197456458033, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+  m_PrefabInstance: {fileID: 5006403174858035876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4233769153397012783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9203967531494222731, guid: 2ba23180e7f3aa743b361495f52b0198, type: 3}
+  m_PrefabInstance: {fileID: 5006403174858035876}
+  m_PrefabAsset: {fileID: 0}
