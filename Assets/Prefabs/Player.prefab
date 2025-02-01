@@ -68,7 +68,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 62
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -291,7 +291,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.96, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6435945644400932430}
@@ -341,8 +341,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  jumpForce: 4
-  gravity: -50
+  jumpForce: 4.5
+  gravity: -35
+  fallMultiplier: 2
+  maxFallSpeed: -25
   dashSpeed: 40
   dashDuration: 0.3
   dashCooldown: 0.5
@@ -360,8 +362,6 @@ MonoBehaviour:
   meleePointDown: {fileID: 1194873808480534542}
   playerHourglass: {fileID: 4233769153397012783}
   playerAnimator: {fileID: 8477338660984987435}
---- !u!136 &7876376688285989982
-CapsuleCollider:
 --- !u!65 &7564198584338678041
 BoxCollider:
   m_ObjectHideFlags: 0
