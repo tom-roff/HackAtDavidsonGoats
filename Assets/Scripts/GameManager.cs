@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     private void RespawnPlayer()
     {
         playerCurrentHealth = playerMaxHealth;
-        
+
         if (player != null)
         {
             // Reset player position
