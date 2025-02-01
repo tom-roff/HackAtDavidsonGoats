@@ -66,21 +66,20 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        HandlePlayerCollision(collision.collider);
+        HandlePlayerCollision(collision.GetComponent<Collider>());
     }
 
-    void OnCollisionStay(Collision collision)
+    void OnTriggerStay(Collider collision)
     {
-        HandlePlayerCollision(collision.collider);
+        HandlePlayerCollision(collision.GetComponent<Collider>());
     }
 
     private void HandlePlayerCollision(Collider other)
     {
         if (other.CompareTag("Player") && damageTimer <= 0)
         {
-            Debug.Log("TAKE DAMAGE!");
             if (gameManager != null)
             {
                 // Apply damage

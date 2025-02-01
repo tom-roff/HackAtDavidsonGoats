@@ -60,19 +60,25 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleKnockback();
-        HandleGroundCheck();
-        HandleDash();
-        if (!isDashing)
+        
+        // Only process inputs if not in knockback
+        if (knockbackTimeRemaining <= 0)
         {
-            HandleJump();
-            HandleMelee();
-            HandleMovement();
-            ApplyGravity();
+            HandleGroundCheck();
+            HandleDash();
+            if (!isDashing)
+            {
+                HandleJump();
+                HandleMelee();
+                HandleMovement();
+                ApplyGravity();
+            }
+            if (meleeTimer > 0)
+            {
+                meleeTimer -= Time.deltaTime;
+            }
         }
-        if (meleeTimer > 0)
-        {
-            meleeTimer -= Time.deltaTime;
-        }
+        
         HandleZAxis();
 
         // Animation Work
@@ -85,8 +91,6 @@ public class PlayerController : MonoBehaviour
         else{
             playerMesh.transform.rotation = Quaternion.Euler(playerMesh.transform.eulerAngles.x, 270, playerMesh.transform.eulerAngles.z);
         }
-
-
     }
 
     void HandleZAxis()
@@ -283,7 +287,14 @@ public class PlayerController : MonoBehaviour
     {
         if (knockbackTimeRemaining > 0)
         {
+            // Apply knockback movement
             controller.Move(knockbackVelocity * Time.deltaTime);
+            
+            // Apply gravity during knockback for arc effect
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+            
+            // Decelerate knockback
             knockbackVelocity = Vector3.Lerp(knockbackVelocity, Vector3.zero, knockbackResistance * Time.deltaTime);
             knockbackTimeRemaining -= Time.deltaTime;
         }

@@ -2,16 +2,19 @@ using UnityEngine;
 
 public class Killbox : MonoBehaviour
 {
+    [SerializeField] int playerDamage = 20;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Get the GameManager instance properly
             GameManager gameManager = GameManager.Instance;
-            
             if (gameManager != null)
             {
-                // Handle CharacterController conflict
+                // Always apply damage first
+                gameManager.DamagePlayer(playerDamage);
+                
+                // Handle CharacterController teleport
                 CharacterController controller = other.GetComponent<CharacterController>();
                 if (controller != null)
                 {

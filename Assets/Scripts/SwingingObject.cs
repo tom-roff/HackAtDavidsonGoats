@@ -8,7 +8,8 @@ public class SwingingObject : MonoBehaviour
     [SerializeField] private float swingSpeed = 2f;
 
     [Header("Death Settings")]
-    [SerializeField] private Vector3 swingAxis = Vector3.forward; // Changed to forward for proper pendulum motion
+    [SerializeField] private Vector3 swingAxis = Vector3.forward;
+    [SerializeField] int playerDamage = 20;
 
     private Vector3 initialPosition;
     private Quaternion initialRotation;
@@ -38,6 +39,7 @@ public class SwingingObject : MonoBehaviour
         {
             // Get the GameManager instance properly
             GameManager gameManager = GameManager.Instance;
+            gameManager.DamagePlayer(playerDamage);
             
             if (gameManager != null)
             {
