@@ -7,12 +7,16 @@ public class HourglassManager : MonoBehaviour
     public Material topMaterial;
     public Material bottomMaterial;
 
+    public GameObject hourglass;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
+
+    public Material test;
 
     public void UpdateSoulMat(int currentSouls, int maxSouls)
     {
@@ -23,10 +27,15 @@ public class HourglassManager : MonoBehaviour
 
         float topConversion = ((currentSoulFloat/maxSoulFloat)/2f)+.5f;
         topMaterial.SetFloat("soulEmptyAmount", topConversion);
+        hourglass.GetComponent<Renderer>().materials[3] = topMaterial;
 
-        //Set Bottom Accordingly 0 - .5
+        
+
+        //Set Bottom Accordingly 0 - .5 range
         float bottomConversion = .5f - ((currentSoulFloat/maxSoulFloat)/2f);
-        bottomMaterial.SetFloat("soulEmptyAmount",bottomConversion);
+        bottomMaterial.SetFloat("soulEmptyAmount", bottomConversion);
+        hourglass.GetComponent<Renderer>().materials[2] = test;
+        Debug.Log("Material's soulEmptyAmount: " + bottomMaterial.GetFloat("soulEmptyAmount"));
 
     }
 

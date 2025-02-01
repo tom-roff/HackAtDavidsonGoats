@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float soulDrainRateInSeconds = 1;
     //Amount of time before souls start draining
-    [SerializeField] private float timeSafeAtStart = 5;
+    [SerializeField] private float timeSafeAtStart = 1;
 
     [Header("Debug")]
     [SerializeField] private bool showDebugInfo;
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         {
             KillPlayer();
         }
-        Debug.Log(((playerCurrentHealth/playerMaxHealth)/2f)+.5f);
+        
         player.playerHourglass.GetComponent<HourglassManager>().UpdateSoulMat(playerCurrentHealth , playerMaxHealth);
     }
 
