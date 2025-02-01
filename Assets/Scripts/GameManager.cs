@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         playerCurrentHealth -= damage;
+
+        UIManager.Instance.UpdateHealthUI(playerCurrentHealth);
         
         // Optional: Add hit effects/animations here
         
@@ -77,7 +79,7 @@ public class GameManager : MonoBehaviour
     public void HealPlayer(int amount)
     {
         playerCurrentHealth = Mathf.Min(playerCurrentHealth + amount, playerMaxHealth);
-        // Optional: Update UI here
+        UIManager.Instance.UpdateHealthUI(playerCurrentHealth);
     }
 
     public void KillPlayer()

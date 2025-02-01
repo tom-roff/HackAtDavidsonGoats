@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
         // Animation Work
         playerAnimator.SetFloat("moveSpeed", Input.GetAxisRaw("Horizontal"));
+        // Debug.Log(Input.GetAxisRaw("Horizontal"));
         playerAnimator.SetBool("IsGrounded", isGrounded);
 
         if(isFacingRight == true){

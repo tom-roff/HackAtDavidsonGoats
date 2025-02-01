@@ -350,9 +350,9 @@ MonoBehaviour:
   dashCooldown: 0.5
   dashDeceleration: 80
   airDashLimit: 1
-  meleeRange: 2
+  meleeRange: 2.5
   meleeDamage: 1
-  meleeDelay: 0.5
+  meleeDelay: 0.3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
