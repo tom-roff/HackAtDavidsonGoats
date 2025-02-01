@@ -5,13 +5,13 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float jumpForce = 4f;
+    [SerializeField] private float jumpForce = 2.5f;
     [SerializeField] private float gravity = -50f;
 
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 40f;
     [SerializeField] private float dashDuration = 0.3f;
-    [SerializeField] private float dashCooldown = 1f;
+    [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float dashDeceleration = 80f;
 
     private CharacterController controller;
