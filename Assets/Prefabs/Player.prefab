@@ -273,6 +273,37 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &1101923140875388819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5266265637840952763}
+  m_Layer: 0
+  m_Name: MeleePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5266265637840952763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101923140875388819}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1189084343632954561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1552073361673041682
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +369,7 @@ Transform:
   - {fileID: 8521903750175946343}
   - {fileID: 788945514500424773}
   - {fileID: 6429062710339866929}
+  - {fileID: 5266265637840952763}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &4347866725880307872
@@ -384,3 +416,10 @@ MonoBehaviour:
   dashDuration: 0.3
   dashCooldown: 1
   dashDeceleration: 80
+  meleeRange: 2
+  meleeDamage: 1
+  meleeDelay: 0.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  meleePoint: {fileID: 5266265637840952763}
