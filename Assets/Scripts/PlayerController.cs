@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject playerHourglass;
     public Animator playerAnimator;
+    public GameObject playerMesh;
     
 
     void Start()
@@ -72,8 +73,16 @@ public class PlayerController : MonoBehaviour
 
         // Animation Work
         playerAnimator.SetFloat("moveSpeed", Input.GetAxisRaw("Horizontal"));
-        Debug.Log(Input.GetAxisRaw("Horizontal"));
         playerAnimator.SetBool("IsGrounded", isGrounded);
+
+        if(isFacingRight == true){
+            playerMesh.transform.rotation = Quaternion.Euler(playerMesh.transform.eulerAngles.x, 90, playerMesh.transform.eulerAngles.z);
+        }
+        else{
+            playerMesh.transform.rotation = Quaternion.Euler(playerMesh.transform.eulerAngles.x, 270, playerMesh.transform.eulerAngles.z);
+        }
+
+
     }
 
     void HandleZAxis()
@@ -87,6 +96,7 @@ public class PlayerController : MonoBehaviour
         
         if (isGrounded && velocity.y < 0)
         {
+            playerAnimator.ResetTrigger("Jump");
             velocity.y = -2f;
         }
     }
@@ -132,6 +142,7 @@ public class PlayerController : MonoBehaviour
             }
 
             isDashing = true;
+            playerAnimator.SetTrigger("Dash");
             dashTimeLeft = dashDuration;
             currentDashSpeed = dashSpeed;
             dashCooldownTimer = dashCooldown;
@@ -157,6 +168,7 @@ public class PlayerController : MonoBehaviour
             // End dash when time is up
             if (dashTimeLeft <= 0)
             {
+                playerAnimator.ResetTrigger("Dash");
                 isDashing = false;
             }
         }
@@ -167,6 +179,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            Debug.Log("Jump Called");
             playerAnimator.SetTrigger("Jump");
         }
     }

@@ -887,6 +887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6704267348855414350, guid: b95c8051ba4ed14498eaa8352f2bd90b, type: 3}
+      propertyPath: playerMesh
+      value: 
+      objectReference: {fileID: 1320693008}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1279,6 +1283,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7874976366523743733, guid: f72921b30eed50c49b43d85eb49f1af6, type: 3}
   m_PrefabInstance: {fileID: 1599622381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1320693008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5916255303985081588, guid: b95c8051ba4ed14498eaa8352f2bd90b, type: 3}
+  m_PrefabInstance: {fileID: 642102910}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1386259198
 PrefabInstance:
