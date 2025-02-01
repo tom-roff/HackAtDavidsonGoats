@@ -58,6 +58,12 @@ public class PlayerController : MonoBehaviour
         {
             meleeTimer -= Time.deltaTime;
         }
+        HandleZAxis();
+    }
+
+    void HandleZAxis()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     void HandleGroundCheck()

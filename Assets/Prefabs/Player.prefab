@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 8521903750175946343}
   - component: {fileID: 8527100559807771821}
   - component: {fileID: 4492522685566878070}
-  - component: {fileID: 5065953104631701754}
-  - component: {fileID: 7589501194549820877}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -88,54 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5065953104631701754
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457114056398671237}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &7589501194549820877
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457114056398671237}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &748663856012424073
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +297,7 @@ GameObject:
   - component: {fileID: 1189084343632954561}
   - component: {fileID: 4347866725880307872}
   - component: {fileID: 6704267348855414350}
+  - component: {fileID: 7876376688285989982}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -417,6 +368,7 @@ MonoBehaviour:
   dashDuration: 0.3
   dashCooldown: 1
   dashDeceleration: 80
+  airDashLimit: 1
   meleeRange: 2
   meleeDamage: 1
   meleeDelay: 0.5
@@ -425,6 +377,29 @@ MonoBehaviour:
     m_Bits: 128
   meleePoint: {fileID: 5266265637840952763}
   playerHourglass: {fileID: 4233769153397012783}
+--- !u!136 &7876376688285989982
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781999533663079446}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5006403174858035876
 PrefabInstance:
   m_ObjectHideFlags: 0
