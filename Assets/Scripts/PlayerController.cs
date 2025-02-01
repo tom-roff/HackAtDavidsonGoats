@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
 
     [Header("Jump Settings")]
-    [SerializeField] private float jumpForce = 4f;
+    [SerializeField] private float jumpForce = 4.5f;
     [SerializeField] private float gravity = -35f;
-    [SerializeField] private float fallMultiplier = 2.2f;
+    [SerializeField] private float fallMultiplier = 2f;
     [SerializeField] private float maxFallSpeed = -25f;
 
     [Header("Dash Settings")]
