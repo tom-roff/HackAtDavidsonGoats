@@ -342,7 +342,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 4
-  gravity: -50
+  gravity: -35
+  fallMultiplier: 2.2
+  maxFallSpeed: -25
   dashSpeed: 40
   dashDuration: 0.3
   dashCooldown: 0.5
@@ -360,8 +362,6 @@ MonoBehaviour:
   meleePointDown: {fileID: 1194873808480534542}
   playerHourglass: {fileID: 4233769153397012783}
   playerAnimator: {fileID: 8477338660984987435}
---- !u!136 &7876376688285989982
-CapsuleCollider:
 --- !u!65 &7564198584338678041
 BoxCollider:
   m_ObjectHideFlags: 0
