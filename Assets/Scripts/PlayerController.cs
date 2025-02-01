@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -36,8 +37,10 @@ public class PlayerController : MonoBehaviour
     private float dashCooldownTimer;
     private float meleeTimer;
     private bool isFacingRight = true;
+    private float currentSpeed;
 
     public GameObject playerHourglass;
+    public Animator playerAnimator;
     
 
     void Start()
@@ -62,6 +65,11 @@ public class PlayerController : MonoBehaviour
             meleeTimer -= Time.deltaTime;
         }
         HandleZAxis();
+
+        // Animation Work
+        playerAnimator.SetFloat("moveSpeed", Input.GetAxisRaw("Horizontal"));
+        Debug.Log(Input.GetAxisRaw("Horizontal"));
+        playerAnimator.SetBool("IsGrounded", isGrounded);
     }
 
     void HandleZAxis()
@@ -91,7 +99,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Apply movement or dash speed
-        float currentSpeed = isDashing ? currentDashSpeed : moveSpeed;
+        currentSpeed = isDashing ? currentDashSpeed : moveSpeed;
         Vector3 movement = new Vector3(horizontalInput * currentSpeed, 0, 0);
         controller.Move(movement * Time.deltaTime);
     }
