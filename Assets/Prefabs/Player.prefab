@@ -353,6 +353,7 @@ MonoBehaviour:
   meleeRange: 2.5
   meleeDamage: 1
   meleeDelay: 0.3
+  knockbackResistance: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -362,6 +363,7 @@ MonoBehaviour:
   meleePointDown: {fileID: 1194873808480534542}
   playerHourglass: {fileID: 4233769153397012783}
   playerAnimator: {fileID: 8477338660984987435}
+  playerMesh: {fileID: 5916255303985081588}
 --- !u!65 &7564198584338678041
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -574,6 +576,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+--- !u!1 &5916255303985081588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+  m_PrefabInstance: {fileID: 5379458085728737415}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6435945644400932430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
