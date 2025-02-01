@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int contactDamage = 1;
     [SerializeField] protected float moveSpeed = 2f;
     
-    protected int currentHealth;
+    [SerializeField] protected int currentHealth;
     protected Transform player;
     protected bool facingRight = true;
     protected Vector3 movementDirection = Vector3.right;
