@@ -14,6 +14,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float dashDeceleration = 80f;
 
+    [Header("Combat Settings")]
+    [SerializeField] private float meleeRange = 2f;
+    [SerializeField] private int meleeDamage = 1;
+    [SerializeField] private float meleeDelay = 0.5f;
+    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private Transform meleePoint; // Point where melee attack checks start
+
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
@@ -22,21 +29,29 @@ public class PlayerController : MonoBehaviour
     private float dashTimeLeft;
     private float currentDashSpeed;
     private float dashCooldownTimer;
+    private float meleeTimer;
+    private bool isFacingRight = true;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        meleeTimer = 0f;
     }
 
     void Update()
     {
         HandleGroundCheck();
-        HandleJump();
         HandleDash();
         if (!isDashing)
         {
+            HandleJump();
+            HandleMelee();
             HandleMovement();
             ApplyGravity();
+        }
+        if (meleeTimer > 0)
+        {
+            meleeTimer -= Time.deltaTime;
         }
     }
 
@@ -58,6 +73,7 @@ public class PlayerController : MonoBehaviour
         if (horizontalInput != 0)
         {
             lastMoveDirection = Mathf.Sign(horizontalInput);
+            isFacingRight = horizontalInput > 0;
         }
 
         // Apply movement or dash speed
@@ -114,5 +130,56 @@ public class PlayerController : MonoBehaviour
     {
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void HandleMelee()
+    {
+        if (Input.GetMouseButtonDown(0) && meleeTimer <= 0) // Left mouse button
+        {
+            Vector3 attackDirection;
+            
+            // Up attack (LMB + W)
+            if (Input.GetKey(KeyCode.W))
+            {
+                attackDirection = Vector3.up;
+            }
+            // Down attack (LMB + S)
+            else if (Input.GetKey(KeyCode.S))
+            {
+                attackDirection = Vector3.down;
+            }
+            // Regular horizontal attack
+            else
+            {
+                attackDirection = isFacingRight ? Vector3.right : Vector3.left;
+            }
+
+            PerformMeleeAttack(attackDirection);
+            meleeTimer = meleeDelay;
+        }
+    }
+
+
+    void PerformMeleeAttack(Vector3 attackDirection)
+    {
+        Debug.DrawRay(meleePoint.position, attackDirection * meleeRange, Color.red, 0.1f);
+
+        // Check for enemies in range
+        RaycastHit[] hits = Physics.SphereCastAll(
+            meleePoint.position,
+            0.5f, // Radius of the sphere
+            attackDirection,
+            meleeRange,
+            enemyLayer
+        );
+
+        foreach (RaycastHit hit in hits)
+        {
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(meleeDamage);
+            }
+        }
     }
 }

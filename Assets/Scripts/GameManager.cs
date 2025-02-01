@@ -5,6 +5,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("Player Stats")]
+    [SerializeField] private int playerMaxHealth = 3;
+    [SerializeField] private int playerCurrentHealth;
+
     [Header("Player References")]
     [SerializeField] private PlayerController player;
     [SerializeField] private Transform initialSpawnPoint;
@@ -34,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     void InitializeGame()
     {
+        playerCurrentHealth = playerMaxHealth;
+
         if (initialSpawnPoint != null)
         {
             currentCheckpoint = initialSpawnPoint.position;
@@ -54,6 +60,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void DamagePlayer(int damage)
+    {
+        playerCurrentHealth -= damage;
+        
+        // Optional: Add hit effects/animations here
+        
+        if (playerCurrentHealth <= 0)
+        {
+            KillPlayer();
+        }
+        
+        // Optional: Update UI here
+    }
+
+    public void HealPlayer(int amount)
+    {
+        playerCurrentHealth = Mathf.Min(playerCurrentHealth + amount, playerMaxHealth);
+        // Optional: Update UI here
+    }
+
     public void KillPlayer()
     {
         if (player != null)
@@ -70,6 +96,8 @@ public class GameManager : MonoBehaviour
 
     private void RespawnPlayer()
     {
+        playerCurrentHealth = playerMaxHealth;
+        
         if (player != null)
         {
             // Reset player position
@@ -151,4 +179,6 @@ public class GameManager : MonoBehaviour
     public float GetTimeElapsed() => timeElapsed;
     public int GetDeathCount() => deathCount;
     public bool IsGamePaused() => isGamePaused;
+    public int GetPlayerCurrentHealth() => playerCurrentHealth;
+    public int GetPlayerMaxHealth() => playerMaxHealth;
 }
