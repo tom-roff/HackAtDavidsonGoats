@@ -11134,7 +11134,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Select Your Bet:
 
-    What path will you choose?'
+    what path will you choose?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
   m_sharedMaterial: {fileID: 7405824066299330806, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
