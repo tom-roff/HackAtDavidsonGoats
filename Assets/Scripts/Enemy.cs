@@ -8,10 +8,14 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float moveSpeed = 2f;
     [SerializeField] private float knockbackForce = 10f;
     [SerializeField] private float knockbackDuration = 0.2f;
+
+    public Animator walkingEnemyAnimator;
     
     [Header("Health Settings")]
     [SerializeField] protected int healthGiven = 1;
     protected int currentHealth;
+
+
     
     protected Transform player;
     protected bool facingRight = true;
@@ -44,6 +48,9 @@ public abstract class Enemy : MonoBehaviour
         {
             damageTimer -= Time.deltaTime;
         }
+
+    walkingEnemyAnimator.SetFloat("Speed", .5f);
+
     }
 
     protected abstract void Move();
@@ -115,6 +122,11 @@ public abstract class Enemy : MonoBehaviour
     {
         facingRight = !facingRight;
         movementDirection *= -1;
+
+        
+        Vector3 rotationToRotate = new Vector3(0f,180f,0f);
+
+        this.transform.Rotate(rotationToRotate);
         
         Transform model = transform.Find("Model");
         if (model != null)
