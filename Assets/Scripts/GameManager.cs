@@ -172,6 +172,28 @@ public class GameManager : MonoBehaviour
         DamagePlayer(1);
     }
 
+    // New method to update the player's betting choices
+    public void ApplyBetEffects(int betID)
+    {
+        switch (betID)
+        {
+            case 1: // Lose health/time faseter, faster movement speed
+                soulDrainRateInSeconds = 2f;  // Reduce soul drain rate (less frequent)
+                //movement speed up
+                Debug.Log("Bet 1 applied: Higher Damage, Less Souls");
+                break;
+            case 2: // Enemies deal double damage, environment does half damage
+                DamagePlayer() * 2;
+                DamagePlayer() / 2;
+                Debug.Log("Bet 2 applied: Lower Damage, More Souls");
+                break;
+            case 3: // Enemies drop less souls, lose health/time slower
+                soulDrainRateInSeconds = 0.5f; 
+                Debug.Log("Bet 3 applied: Harder Enemies, More Rewards");
+                break;
+        }
+    }
+
 
     // Getter methods
     public Vector3 GetCurrentCheckpoint() => currentCheckpoint;
