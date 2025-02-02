@@ -130,6 +130,7 @@ MonoBehaviour:
   knockbackDuration: 0.2
   walkingEnemyAnimator: {fileID: 1122474929421434611}
   healthGiven: 5
+  deathParticlePrefab: {fileID: 5880797563127281583, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
   damageCooldown: 0.3
   groundCheck: {fileID: 7212754036812866339}
   checkDistance: 0.5

@@ -15,6 +15,9 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int healthGiven = 1;
     protected int currentHealth;
 
+    [Header("Death Settings")]
+    [SerializeField] protected GameObject deathParticlePrefab;
+
 
     
     protected Transform player;
@@ -66,12 +69,18 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (deathParticlePrefab != null)
+        {
+            Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
+        }
+        
         if (gameManager != null)
         {
             gameManager.HealPlayer(healthGiven);
         }
         Destroy(gameObject);
     }
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -88,9 +97,10 @@ public abstract class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Bone"))
         {
+            Destroy(other.gameObject);
             TakeDamage(1);
         }
-        
+
         else if (other.CompareTag("Player") && damageTimer <= 0)
         {
             PlayerController playerController = other.GetComponent<PlayerController>();
