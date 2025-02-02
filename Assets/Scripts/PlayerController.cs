@@ -56,6 +56,48 @@ public class PlayerController : MonoBehaviour
     public GameObject playerMesh;
 
     protected GameManager gameManager;
+
+    public static PlayerController Instance { get; private set; }
+
+        void Awake()
+    {
+        // Singleton pattern
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+            void OnEnable()
+            {
+             //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
+                SceneManager.sceneLoaded += OnLevelFinishedLoading;
+            }
+        
+            void OnDisable()
+            {
+            //Tell our 'OnLevelFinishedLoading' function to stop listening for a scene change as soon as this script is disabled. Remember to always have an unsubscription for every delegate you subscribe to!
+                SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+            }
+        
+            void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+            {
+                Debug.Log("Level Loaded");
+                if(SceneManager.GetActiveScene().name == "Level1"){
+                    playerHourglass.SetActive(true);
+                    gameObject.transform.position = GameObject.Find("InitialSpawn").transform.position;
+                }
+
+
+            }
     
 
     void Start()
