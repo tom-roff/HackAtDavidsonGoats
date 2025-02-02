@@ -88,7 +88,8 @@ public class GameManager : MonoBehaviour
         
         if (playerCurrentHealth <= 0)
         {
-            KillPlayer();
+            SceneManager.LoadScene("Casino");
+            playerCurrentHealth = playerMaxHealth;
         }
         
         player.playerHourglass.GetComponent<HourglassManager>().UpdateSoulMat(playerCurrentHealth , playerMaxHealth);
