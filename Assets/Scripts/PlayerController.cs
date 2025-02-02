@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
     private float lastMoveDirection = 1f;
-    private bool isDashing;
+    public bool isDashing;
     private float dashTimeLeft;
     private float currentDashSpeed;
     private float dashCooldownTimer;
@@ -279,24 +279,29 @@ public class PlayerController : MonoBehaviour
 
     public void ApplyKnockback(Vector3 direction, float force, float duration)
     {
-        knockbackVelocity = direction * force;
+        // Convert direction to world space if enemy is rotated
+        Vector3 effectiveDirection = transform.InverseTransformDirection(direction);
+        
+        // Apply knockback with consistent upward force
+        knockbackVelocity = new Vector3(effectiveDirection.x * force, 5f, 0);
         knockbackTimeRemaining = duration;
+        
+        // Reset vertical velocity and disable gravity during knockback
+        velocity.y = 0;
     }
+
 
     void HandleKnockback()
     {
         if (knockbackTimeRemaining > 0)
         {
-            // Apply knockback movement
+            // Apply vertical anti-stick force
+            velocity.y += 15f * Time.deltaTime;
+            
             controller.Move(knockbackVelocity * Time.deltaTime);
-            
-            // Apply gravity during knockback for arc effect
-            velocity.y += gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
-            
-            // Decelerate knockback
             knockbackVelocity = Vector3.Lerp(knockbackVelocity, Vector3.zero, knockbackResistance * Time.deltaTime);
             knockbackTimeRemaining -= Time.deltaTime;
         }
     }
+
 }
