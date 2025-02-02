@@ -12,7 +12,7 @@ public abstract class Enemy : MonoBehaviour
     public Animator walkingEnemyAnimator;
     
     [Header("Health Settings")]
-    [SerializeField] protected int healthGiven = 1;
+    [SerializeField] protected int healthGiven = 10;
     protected int currentHealth;
 
     [Header("Death Settings")]
@@ -76,7 +76,13 @@ public abstract class Enemy : MonoBehaviour
         
         if (gameManager != null)
         {
-            gameManager.HealPlayer(healthGiven);
+            if(gameManager.soulDropLess){
+                gameManager.HealPlayer(healthGiven / 2);
+            }
+            else{
+                gameManager.HealPlayer(healthGiven);
+            }
+
         }
         Destroy(gameObject);
     }
@@ -109,8 +115,12 @@ public abstract class Enemy : MonoBehaviour
                 if (gameManager != null)
                 {
                     // Apply damage
-                    gameManager.DamagePlayer(contactDamage);
-                    
+                    if(gameManager.enemiesDealDouble){
+                        gameManager.DamagePlayer(contactDamage * 2);
+                    }
+                    else{
+                        gameManager.DamagePlayer(contactDamage);
+                    }
                     // Calculate knockback direction
                     Vector3 knockbackDirection = CalculateKnockbackDirection(other.transform.position);
                     

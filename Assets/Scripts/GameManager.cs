@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour
     private Vector3 currentCheckpoint;
     private bool isGamePaused;
 
+    //Aetting effects
+    public bool enemiesDealDouble = false;
+    public bool environmentDealHalf = false;
+    public bool movementSpeedDouble = false;
+    public bool soulDropLess = false;
+
 
     [SerializeField] private float soulDrainRateInSeconds = 1;
     //Amount of time before souls start draining
@@ -179,15 +185,16 @@ public class GameManager : MonoBehaviour
         {
             case 1: // Lose health/time faseter, faster movement speed
                 soulDrainRateInSeconds = 2f;  // Reduce soul drain rate (less frequent)
-                //movement speed up
+                movementSpeedDouble = true;
                 Debug.Log("Bet 1 applied: Higher Damage, Less Souls");
                 break;
             case 2: // Enemies deal double damage, environment does half damage
-                DamagePlayer() * 2;
-                DamagePlayer() / 2;
+                enemiesDealDouble = true;;
+                environmentDealHalf = true;
                 Debug.Log("Bet 2 applied: Lower Damage, More Souls");
                 break;
             case 3: // Enemies drop less souls, lose health/time slower
+                soulDropLess = true;
                 soulDrainRateInSeconds = 0.5f; 
                 Debug.Log("Bet 3 applied: Harder Enemies, More Rewards");
                 break;

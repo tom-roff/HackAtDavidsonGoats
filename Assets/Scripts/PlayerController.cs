@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
     public GameObject playerHourglass;
     public Animator playerAnimator;
     public GameObject playerMesh;
+
+    protected GameManager gameManager;
     
 
     void Start()
@@ -130,7 +132,13 @@ public class PlayerController : MonoBehaviour
         // Apply movement or dash speed
         currentSpeed = isDashing ? currentDashSpeed : moveSpeed;
         Vector3 movement = new Vector3(horizontalInput * currentSpeed, 0, 0);
-        controller.Move(movement * Time.deltaTime);
+        if(gameManager.movementSpeedDouble){
+            controller.Move(movement * 2 * Time.deltaTime);
+        }
+        else{
+            controller.Move(movement * Time.deltaTime);
+        }
+
     }
 
     void HandleDash()

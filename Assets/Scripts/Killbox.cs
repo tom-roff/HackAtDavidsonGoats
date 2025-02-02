@@ -3,6 +3,8 @@ using UnityEngine;
 public class Killbox : MonoBehaviour
 {
     [SerializeField] int playerDamage = 20;
+
+    protected GameManager gameManager;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +14,13 @@ public class Killbox : MonoBehaviour
             if (gameManager != null)
             {
                 // Always apply damage first
-                gameManager.DamagePlayer(playerDamage);
+                if(gameManager.environmentDealHalf){
+                    gameManager.DamagePlayer(playerDamage / 2);
+                }
+                else{
+                    gameManager.DamagePlayer(playerDamage);
+                }
+                
                 
                 // Handle CharacterController teleport
                 CharacterController controller = other.GetComponent<CharacterController>();
