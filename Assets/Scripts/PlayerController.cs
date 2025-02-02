@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         meleeTimer = 0f;
+        gameManager = GameManager.Instance;
     }
 
     void Update()
