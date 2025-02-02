@@ -17,6 +17,7 @@ public abstract class Enemy : MonoBehaviour
 
     [Header("Death Settings")]
     [SerializeField] protected GameObject deathParticlePrefab;
+    [SerializeField] protected GameObject deathParticlePrefabTwo;
 
 
     
@@ -72,6 +73,7 @@ public abstract class Enemy : MonoBehaviour
         if (deathParticlePrefab != null)
         {
             Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
+            Instantiate(deathParticlePrefabTwo, transform.position, Quaternion.identity);
         }
         
         if (gameManager != null)
