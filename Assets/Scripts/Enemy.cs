@@ -66,33 +66,50 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerEnter(Collider other)
     {
-        HandlePlayerCollision(collision.GetComponent<Collider>());
+        HandlePlayerCollision(other);
     }
 
-    void OnTriggerStay(Collider collision)
+    void OnTriggerStay(Collider other)
     {
-        HandlePlayerCollision(collision.GetComponent<Collider>());
+        HandlePlayerCollision(other);
     }
+
 
     private void HandlePlayerCollision(Collider other)
     {
         if (other.CompareTag("Player") && damageTimer <= 0)
         {
-            if (gameManager != null)
+            PlayerController playerController = other.GetComponent<PlayerController>();
+            if (playerController != null && !playerController.isDashing)
             {
-                // Apply damage
-                gameManager.DamagePlayer(contactDamage);
-                
-                // Apply knockback
-                Vector3 knockbackDirection = (other.transform.position - transform.position).normalized;
-                other.GetComponent<PlayerController>()?.ApplyKnockback(knockbackDirection, knockbackForce, knockbackDuration);
-                
-                damageTimer = damageCooldown;
+                if (gameManager != null)
+                {
+                    // Apply damage
+                    gameManager.DamagePlayer(contactDamage);
+                    
+                    // Calculate knockback direction
+                    Vector3 knockbackDirection = CalculateKnockbackDirection(other.transform.position);
+                    
+                    // Apply knockback
+                    playerController.ApplyKnockback(knockbackDirection, knockbackForce, knockbackDuration);
+                    
+                    damageTimer = damageCooldown;
+                }
             }
         }
     }
+
+    private Vector3 CalculateKnockbackDirection(Vector3 playerPosition)
+    {
+        // Get horizontal direction based on relative position
+        float horizontalDirection = Mathf.Sign(playerPosition.x - transform.position.x);
+        
+        // Always include upward component and prevent pure vertical knockback
+        return new Vector3(horizontalDirection, 0.4f, 0).normalized;
+    }
+
 
     protected void Flip()
     {

@@ -122,11 +122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a41a332118d4044d954eb76bdd3ed5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
-  contactDamage: 1
+  maxHealth: 1
+  contactDamage: 20
   moveSpeed: 2
-  healthGiven: 1
-  damageCooldown: 0.5
+  knockbackForce: 20
+  knockbackDuration: 0.2
+  healthGiven: 5
+  damageCooldown: 0.3
   groundCheck: {fileID: 7212754036812866339}
   checkDistance: 0.5
   groundLayer:

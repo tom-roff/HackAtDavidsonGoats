@@ -410,6 +410,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1281299877}
+  - {fileID: 584109038}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -540,13 +541,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 77243807285832063, guid: b95c8051ba4ed14498eaa8352f2bd90b, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1189084343632954561, guid: b95c8051ba4ed14498eaa8352f2bd90b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50.85
+      value: -33
       objectReference: {fileID: 0}
     - target: {fileID: 1189084343632954561, guid: b95c8051ba4ed14498eaa8352f2bd90b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.76
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1189084343632954561, guid: b95c8051ba4ed14498eaa8352f2bd90b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -840,6 +845,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7874976366523743733, guid: f72921b30eed50c49b43d85eb49f1af6, type: 3}
   m_PrefabInstance: {fileID: 534390379}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &169959464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 169959466}
+  - component: {fileID: 169959465}
+  - component: {fileID: 169959467}
+  m_Layer: 0
+  m_Name: Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &169959465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169959464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: e91be7787f6e2e3429176dfcd766216c, type: 2}
+--- !u!4 &169959466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169959464}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -28.989908, y: 1.6040353, z: -0.63013387}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &169959467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169959464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48059c9fe3bece84faa1129e2dda0c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postProcessVolume: {fileID: 169959465}
+  maxIntensity: 0.6
+  minIntensity: 0
 --- !u!1 &211040671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,8 +1619,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 235420244}
+  m_Children: []
   m_Father: {fileID: 63572153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -2590,6 +2659,7 @@ MonoBehaviour:
   swingAngle: 80
   swingSpeed: 3
   swingAxis: {x: 1, y: 0, z: 0}
+  playerDamage: 20
 --- !u!65 &1770942663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2682,6 +2752,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2074175911}
     m_Modifications:
+    - target: {fileID: 3194314281739455608, guid: 7a4dbd91f00b76e4ebf7bfbde4db4443, type: 3}
+      propertyPath: contactDamage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6407668219709676353, guid: 7a4dbd91f00b76e4ebf7bfbde4db4443, type: 3}
       propertyPath: m_Name
       value: WalkingEnemy (2)
@@ -3003,6 +3077,7 @@ MonoBehaviour:
   swingAngle: 80
   swingSpeed: 2.5
   swingAxis: {x: 1, y: 0, z: 0}
+  playerDamage: 20
 --- !u!65 &2066600663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3307,3 +3382,4 @@ SceneRoots:
   - {fileID: 63572153}
   - {fileID: 512283881}
   - {fileID: 1117513889}
+  - {fileID: 169959466}
