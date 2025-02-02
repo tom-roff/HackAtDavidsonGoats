@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -254,6 +255,9 @@ public class PlayerController : MonoBehaviour
 
     void HandleMelee()
     {
+        if ((SceneManager.GetActiveScene().name == "Casino") || (SceneManager.GetActiveScene().name == "TutorialLevel") || (SceneManager.GetActiveScene().name == "MainMenu")) {
+            return;
+        }
         if (Input.GetMouseButtonDown(0) && meleeTimer <= 0 && hasBone)
         {
             Vector3 attackDirection;
