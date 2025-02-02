@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public GameObject bettingCanvas;
+    public GameObject dialogCanvas;
     private int index;
     private bool isDialogueActive = false;
     private bool canSkipText = false; // Prevents skipping text until dialogue starts
@@ -17,7 +18,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        gameObject.SetActive(false); // Hide the dialogue panel at the start
+        dialogCanvas.SetActive(false); // Hide the dialogue panel at the start
         bettingCanvas.SetActive(false);
     }
 
@@ -27,7 +28,8 @@ public class Dialogue : MonoBehaviour
         {
             isDialogueActive = true;
             canSkipText = false; // Prevent skipping text until it starts
-            gameObject.SetActive(true); // Show dialogue box
+            dialogCanvas.SetActive(true); // Show dialogue box
+            Debug.Log("Dialog Canvas activated: " + dialogCanvas.activeSelf);
             index = 0;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
