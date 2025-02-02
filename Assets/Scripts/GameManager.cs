@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerSpawnFX;
 
     [Header("Player References")]
-    [SerializeField] protected GameObject respawnEffect;
     [SerializeField] private PlayerController player;
     [SerializeField] private Transform initialSpawnPoint;
 
@@ -124,8 +123,19 @@ public class GameManager : MonoBehaviour
             {
                 controller.enabled = false;
                 player.transform.position = currentCheckpoint;
-                Instantiate(respawnEffect, transform.position, Quaternion.identity);
                 controller.enabled = true;
+            }
+
+            if (playerSpawnFX != null)
+            {
+                GameObject spawnEffect = Instantiate(playerSpawnFX, player.transform.position, Quaternion.identity);
+                ParticleSystem ps = spawnEffect.GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    ps.Clear();
+                    ps.Play();
+                    Destroy(spawnEffect, ps.main.duration);
+                }
             }
 
             // Re-enable player controls
@@ -177,7 +187,7 @@ public class GameManager : MonoBehaviour
 
     private void DrainPlayerHealth(){
         // Damage Player amount of Souls to Drain
-        if ((SceneManager.GetActiveScene().name != "Casino") && (SceneManager.GetActiveScene().name != "TutorialLevel")) 
+        if (SceneManager.GetActiveScene().name != "Casino") 
         {
             DamagePlayer(1);
         }
