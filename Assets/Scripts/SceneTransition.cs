@@ -9,7 +9,7 @@ public class SceneTransition : MonoBehaviour
         {
             if(SceneManager.GetActiveScene().name == "TutorialLevel")
             {
-                SceneManager.LoadScene(sceneName:"Level1");
+                SceneManager.LoadScene(sceneName:"Casino");
             }
 
             else if(SceneManager.GetActiveScene().name == "Level1")
