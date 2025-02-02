@@ -79,7 +79,10 @@ public class GameManager : MonoBehaviour
     {
         playerCurrentHealth -= damage;
 
-        UIManager.Instance.UpdateHealthUI(playerCurrentHealth);
+        if ((SceneManager.GetActiveScene().name != "Casino") && (SceneManager.GetActiveScene().name != "TutorialLevel") && (SceneManager.GetActiveScene().name != "MainMenu"))
+        {
+            UIManager.Instance.UpdateHealthUI(playerCurrentHealth);
+        }
         
         // Optional: Add hit effects/animations here
         
@@ -94,7 +97,10 @@ public class GameManager : MonoBehaviour
     public void HealPlayer(int amount)
     {
         playerCurrentHealth = Mathf.Min(playerCurrentHealth + amount, playerMaxHealth);
-        UIManager.Instance.UpdateHealthUI(playerCurrentHealth);
+        if ((SceneManager.GetActiveScene().name != "Casino") && (SceneManager.GetActiveScene().name != "TutorialLevel") && (SceneManager.GetActiveScene().name != "MainMenu"))
+        {
+            UIManager.Instance.UpdateHealthUI(playerCurrentHealth);
+        }
     }
 
     public void KillPlayer()
@@ -199,7 +205,7 @@ public class GameManager : MonoBehaviour
 
     private void DrainPlayerHealth(){
         // Damage Player amount of Souls to Drain
-        if (SceneManager.GetActiveScene().name != "Casino") 
+        if ((SceneManager.GetActiveScene().name != "Casino") && (SceneManager.GetActiveScene().name != "TutorialLevel") && (SceneManager.GetActiveScene().name != "MainMenu")) 
         {
             DamagePlayer(3);
         }
