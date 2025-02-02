@@ -233,6 +233,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Bet 3 applied: Harder Enemies, More Rewards");
                 break;
         }
+        SceneManager.LoadScene("Level1");
     }
 
 
