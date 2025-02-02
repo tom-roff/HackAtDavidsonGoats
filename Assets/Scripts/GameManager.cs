@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +10,8 @@ public class GameManager : MonoBehaviour
     [Header("Player Stats")]
     [SerializeField] private int playerMaxHealth = 100;
     [SerializeField] private int playerCurrentHealth;
+
+    [SerializeField] private GameObject playerSpawnFX;
 
     [Header("Player References")]
     [SerializeField] private PlayerController player;
@@ -155,6 +159,12 @@ public class GameManager : MonoBehaviour
 
     void Start(){
         InvokeRepeating("DrainPlayerHealth", timeSafeAtStart, soulDrainRateInSeconds);
+        Transform particleSpawnTrans = player.transform;
+        Vector3 particleSpawnPos = player.transform.position;
+        //particleSpawnPos.y -= 10f;
+        particleSpawnTrans.position = particleSpawnPos;
+        GameObject spawnExplosionFX = Instantiate(playerSpawnFX, player.transform);
+        spawnExplosionFX.transform.localScale *= 3;
     }
 
     private void DrainPlayerHealth(){
