@@ -24,6 +24,7 @@ public class HourglassManager : MonoBehaviour
 
 
 
+
     public void UpdateSoulMat(int currentSouls, int maxSouls)
     {
 
