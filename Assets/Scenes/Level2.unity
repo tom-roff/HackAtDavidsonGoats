@@ -5115,6 +5115,10 @@ PrefabInstance:
       propertyPath: initialSpawnPoint
       value: 
       objectReference: {fileID: 1550823144}
+    - target: {fileID: 6720656452364578759, guid: 1fcd89c4dd7fade4983aecd345219017, type: 3}
+      propertyPath: soulDrainRateInSeconds
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
