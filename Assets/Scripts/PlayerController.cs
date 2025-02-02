@@ -93,10 +93,10 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Level Loaded");
                 if(SceneManager.GetActiveScene().name == "Level1"){
                     playerHourglass.SetActive(true);
-                    gameObject.transform.position = GameObject.Find("InitialSpawn").transform.position;
+
                 }
 
-
+                gameObject.transform.position = GameObject.Find("InitialSpawn").transform.position;
             }
     
 
