@@ -15625,8 +15625,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use A and D to move left and right
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
+  m_sharedMaterial: {fileID: 7405824066299330806, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20784,7 +20784,6 @@ MonoBehaviour:
   playerMaxHealth: 3
   playerCurrentHealth: 0
   playerSpawnFX: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c, type: 3}
-  respawnEffect: {fileID: 0}
   player: {fileID: 1746841789}
   initialSpawnPoint: {fileID: 1275217896}
   respawnDelay: 1
@@ -20869,8 +20868,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use space to jump
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
+  m_sharedMaterial: {fileID: 7405824066299330806, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -41058,6 +41057,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4233769153397012783, guid: b95c8051ba4ed14498eaa8352f2bd90b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4781999533663079446, guid: b95c8051ba4ed14498eaa8352f2bd90b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -44869,8 +44872,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Watch out for spikes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
+  m_sharedMaterial: {fileID: 7405824066299330806, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -45221,8 +45224,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
+  m_sharedMaterial: {fileID: 7405824066299330806, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -50498,8 +50501,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use shift to dash forward
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
+  m_sharedMaterial: {fileID: 7405824066299330806, guid: f997ba6a92571473991c9ef50ed2e808, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
