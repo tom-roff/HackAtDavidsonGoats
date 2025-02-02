@@ -86,7 +86,12 @@ public abstract class Enemy : MonoBehaviour
 
     private void HandlePlayerCollision(Collider other)
     {
-        if (other.CompareTag("Player") && damageTimer <= 0)
+        if (other.CompareTag("Bone"))
+        {
+            TakeDamage(1);
+        }
+        
+        else if (other.CompareTag("Player") && damageTimer <= 0)
         {
             PlayerController playerController = other.GetComponent<PlayerController>();
             if (playerController != null && !playerController.isDashing)

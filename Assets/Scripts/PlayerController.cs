@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -22,15 +23,18 @@ public class PlayerController : MonoBehaviour
     private int airDashesUsed = 0;
 
     [Header("Combat Settings")]
-    [SerializeField] private float meleeRange = 2f;
-    [SerializeField] private int meleeDamage = 1;
-    [SerializeField] private float meleeDelay = 0.5f;
-    [SerializeField] private float knockbackResistance = 3f;
+    [SerializeField] private float knockbackResistance = 0f;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform meleePointRight;
     [SerializeField] private Transform meleePointLeft;
     [SerializeField] private Transform meleePointUp;
     [SerializeField] private Transform meleePointDown;
+    [Header("Bone Settings")]
+    [SerializeField] private GameObject boneProjectilePrefab;
+    [SerializeField] private GameObject heldBone; // The visible bone in hand
+    [SerializeField] private float throwForce = 10f;
+    [SerializeField] private float boneCooldown = 1f;
+    private bool hasBone = true;
     private Vector3 knockbackVelocity;
     private float knockbackTimeRemaining;
 
@@ -212,75 +216,6 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void HandleMelee()
-    {
-        if (Input.GetMouseButtonDown(0) && meleeTimer <= 0) // Left mouse button
-        {
-            Vector3 attackDirection;
-            
-            // Up attack (LMB + W)
-            if (Input.GetKey(KeyCode.W))
-            {
-                attackDirection = Vector3.up;
-            }
-            // Down attack (LMB + S)
-            else if (Input.GetKey(KeyCode.S))
-            {
-                attackDirection = Vector3.down;
-            }
-            // Regular horizontal attack
-            else
-            {
-                attackDirection = isFacingRight ? Vector3.right : Vector3.left;
-            }
-
-            PerformMeleeAttack(attackDirection);
-            meleeTimer = meleeDelay;
-            playerAnimator.SetTrigger("Attack");
-        }
-    }
-
-
-    void PerformMeleeAttack(Vector3 attackDirection)
-    {
-        Transform currentMeleePoint = meleePointRight; // Default to right
-
-        // Determine melee point based on direction
-        if (attackDirection == Vector3.up)
-        {
-            currentMeleePoint = meleePointUp;
-        }
-        else if (attackDirection == Vector3.down)
-        {
-            currentMeleePoint = meleePointDown;
-        }
-        else
-        {
-            currentMeleePoint = isFacingRight ? meleePointRight : meleePointLeft;
-        }
-
-        // Visual debug
-        Debug.DrawRay(currentMeleePoint.position, attackDirection * meleeRange, Color.red, 0.1f);
-
-        // Sphere cast from appropriate point
-        RaycastHit[] hits = Physics.SphereCastAll(
-            currentMeleePoint.position,
-            0.5f,
-            attackDirection,
-            meleeRange,
-            enemyLayer
-        );
-
-        foreach (RaycastHit hit in hits)
-        {
-            Enemy enemy = hit.collider.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(meleeDamage);
-            }
-        }
-    }
-
     public void ApplyKnockback(Vector3 direction, float force, float duration)
     {
         // Convert direction to world space if enemy is rotated
@@ -306,6 +241,64 @@ public class PlayerController : MonoBehaviour
             knockbackVelocity = Vector3.Lerp(knockbackVelocity, Vector3.zero, knockbackResistance * Time.deltaTime);
             knockbackTimeRemaining -= Time.deltaTime;
         }
+    }
+
+    void HandleMelee()
+    {
+        if (Input.GetMouseButtonDown(0) && meleeTimer <= 0 && hasBone)
+        {
+            Vector3 attackDirection;
+            Transform throwPoint = meleePointRight; // Default to right
+            
+            // Determine attack direction
+            if (Input.GetKey(KeyCode.W))
+            {
+                attackDirection = Vector3.up;
+                throwPoint = meleePointUp;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                attackDirection = Vector3.down;
+                throwPoint = meleePointDown;
+            }
+            else
+            {
+                attackDirection = isFacingRight ? Vector3.right : Vector3.left;
+                throwPoint = isFacingRight ? meleePointRight : meleePointLeft;
+            }
+
+            ThrowBone(throwPoint, attackDirection);
+            meleeTimer = boneCooldown;
+            playerAnimator.SetTrigger("Attack");
+        }
+    }
+
+    void ThrowBone(Transform throwPoint, Vector3 direction)
+    {
+        // Disable held bone
+        hasBone = false;
+        heldBone.SetActive(false);
+
+        // Instantiate and throw projectile
+        GameObject bone = Instantiate(boneProjectilePrefab, throwPoint.position, Quaternion.identity);
+        bone.transform.rotation = Quaternion.Euler(90, 0, 0);
+        Rigidbody rb = bone.GetComponent<Rigidbody>();
+        
+        // Set projectile direction
+        if (rb != null)
+        {
+            rb.linearVelocity = direction * throwForce;
+        }
+
+        // Start cooldown coroutine
+        StartCoroutine(ResetBone());
+    }
+
+    IEnumerator ResetBone()
+    {
+        yield return new WaitForSeconds(boneCooldown);
+        hasBone = true;
+        heldBone.SetActive(true);
     }
 
 }
