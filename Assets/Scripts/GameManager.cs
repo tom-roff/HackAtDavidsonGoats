@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform initialSpawnPoint;
 
     [Header("Game State")]
-    [SerializeField] private float respawnDelay = 1f;
+    [SerializeField] private float respawnDelay = 3f;
     private Vector3 currentCheckpoint;
     private bool isGamePaused;
 
@@ -101,13 +101,11 @@ public class GameManager : MonoBehaviour
     {
         if (player != null)
         {
-            // Disable player controls
-            player.enabled = false;
             
             // Optional: Play death animation/effects here
             
             // Respawn after delay
-            Invoke(nameof(RespawnPlayer), respawnDelay);
+            Invoke(nameof(RespawnPlayer), 0);
         }
     }
 
@@ -117,6 +115,9 @@ public class GameManager : MonoBehaviour
 
         if (player != null)
         {
+            // Disable player controls immediately
+            player.enabled = false;
+
             // Reset player position
             CharacterController controller = player.GetComponent<CharacterController>();
             if (controller != null)
@@ -138,7 +139,18 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            // Re-enable player controls
+            // Start coroutine for delayed control re-enable
+            StartCoroutine(EnablePlayerAfterDelay());
+        }
+    }
+
+    private IEnumerator EnablePlayerAfterDelay()
+    {
+        yield return new WaitForSeconds(respawnDelay);
+        
+        // Re-enable player controls after delay
+        if (player != null)
+        {
             player.enabled = true;
         }
     }
@@ -182,14 +194,14 @@ public class GameManager : MonoBehaviour
         //particleSpawnPos.y -= 10f;
         particleSpawnTrans.position = particleSpawnPos;
         GameObject spawnExplosionFX = Instantiate(playerSpawnFX, player.transform);
-        spawnExplosionFX.transform.localScale *= 3;
+        // spawnExplosionFX.transform.localScale *= 3;
     }
 
     private void DrainPlayerHealth(){
         // Damage Player amount of Souls to Drain
         if (SceneManager.GetActiveScene().name != "Casino") 
         {
-            DamagePlayer(1);
+            DamagePlayer(3);
         }
         
     }
