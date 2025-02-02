@@ -484,7 +484,7 @@ MonoBehaviour:
   meleeRange: 2.5
   meleeDamage: 1
   meleeDelay: 0.3
-  knockbackResistance: 3
+  knockbackResistance: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
