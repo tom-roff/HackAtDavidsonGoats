@@ -77,6 +77,9 @@ public class PlayerController : MonoBehaviour
             {
                 meleeTimer -= Time.deltaTime;
             }
+            else{
+                playerAnimator.ResetTrigger("Attack");
+            }
         }
         
         HandleZAxis();
