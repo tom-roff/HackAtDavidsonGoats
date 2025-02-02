@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerSpawnFX;
 
     [Header("Player References")]
+    [SerializeField] protected GameObject respawnEffect;
     [SerializeField] private PlayerController player;
     [SerializeField] private Transform initialSpawnPoint;
 
@@ -123,6 +124,7 @@ public class GameManager : MonoBehaviour
             {
                 controller.enabled = false;
                 player.transform.position = currentCheckpoint;
+                Instantiate(respawnEffect, transform.position, Quaternion.identity);
                 controller.enabled = true;
             }
 
