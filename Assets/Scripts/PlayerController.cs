@@ -233,6 +233,7 @@ public class PlayerController : MonoBehaviour
 
             PerformMeleeAttack(attackDirection);
             meleeTimer = meleeDelay;
+            playerAnimator.SetTrigger("Attack");
         }
     }
 
