@@ -1218,6 +1218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -2061,80 +2065,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1001 &57506646
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1282908535}
-    m_Modifications:
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.4598923
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 9.400753
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.60565335
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.6210501
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.39158794
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.30682185
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 30.796
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 264.784
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 272.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057565271109136931, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_Name
-      value: Rocks_Granite_36 (44)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
---- !u!4 &57506647 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-  m_PrefabInstance: {fileID: 57506646}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &59575451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2839,6 +2769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -3354,80 +3288,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8387812288188927564, guid: a13b8883072533940b5bcfde3cbc03a0, type: 3}
   m_PrefabInstance: {fileID: 84559276}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &84602302
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1282908535}
-    m_Modifications:
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 18.304367
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.6209373
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.306786
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.5187609
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.1339334
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.42434
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.7299894
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 28.723
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -46.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -263.344
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057565271109136931, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-      propertyPath: m_Name
-      value: Rocks_Granite_36 (45)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
---- !u!4 &84602303 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
-  m_PrefabInstance: {fileID: 84602302}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &84608038
 PrefabInstance:
@@ -12117,6 +11977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -22830,6 +22694,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1282908535}
     m_Modifications:
+    - target: {fileID: 409543910527480569, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -31138,6 +31006,127 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
   m_PrefabInstance: {fileID: 768908644}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &772654252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 772654255}
+  - component: {fileID: 772654254}
+  - component: {fileID: 772654253}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &772654253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772654252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &772654254
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772654252}
+  m_Enabled: 1
+  serializedVersion: 11
+  m_Type: 0
+  m_Color: {r: 0.95911944, g: 1, b: 0.997446, a: 1}
+  m_Intensity: 100
+  m_Range: 100
+  m_SpotAngle: 121.052025
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
+--- !u!4 &772654255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772654252}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.3086377, y: 0.04911227, z: 0.31530032, w: 0.89605606}
+  m_LocalPosition: {x: 77.26, y: -5.26, z: -8.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 31.476, y: 19.354, z: 44.274}
 --- !u!1001 &772986752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39759,6 +39748,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1282908535}
     m_Modifications:
+    - target: {fileID: 409543910527480569, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -40806,6 +40799,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1282908535}
     m_Modifications:
+    - target: {fileID: 409543910527480569, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -45494,6 +45491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -48795,6 +48796,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -50699,6 +50704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -51165,6 +51174,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1282908535}
     m_Modifications:
+    - target: {fileID: 409543910527480569, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -54328,8 +54341,6 @@ Transform:
   - {fileID: 802202713}
   - {fileID: 1938492953}
   - {fileID: 978436718}
-  - {fileID: 57506647}
-  - {fileID: 84602303}
   - {fileID: 473498431}
   - {fileID: 875974372}
   - {fileID: 1474332383}
@@ -55075,6 +55086,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -58794,80 +58809,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 74a2bef39d32121488031777ed6b621d, type: 3}
   m_PrefabInstance: {fileID: 337175984}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1410153943
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1710239797}
-    m_Modifications:
-    - target: {fileID: 4879330491268949146, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_Name
-      value: Rocks_Granite_10 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.75575083
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.65485936
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 81.818
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
---- !u!4 &1410153944 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-  m_PrefabInstance: {fileID: 1410153943}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1412783111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61832,80 +61773,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7969972704443486089, guid: 3ef94e73d5607784fbcbba8de4155b1e, type: 3}
   m_PrefabInstance: {fileID: 1474421155}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1477430647
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1710239797}
-    m_Modifications:
-    - target: {fileID: 4879330491268949146, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_Name
-      value: Rocks_Granite_10 (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -41.800003
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.489998
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.62000275
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.70318174
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.6471584
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.27684852
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.10038123
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -74.955
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 272.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 56.779
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
---- !u!4 &1477430648 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6184917496138183548, guid: 3d9bdf9d4eb887840bae2dcf19d1d5b1, type: 3}
-  m_PrefabInstance: {fileID: 1477430647}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1478496231
 PrefabInstance:
@@ -66647,6 +66514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -70680,6 +70551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -72542,8 +72417,6 @@ Transform:
   - {fileID: 961414231}
   - {fileID: 1364893839}
   - {fileID: 1096408473}
-  - {fileID: 1477430648}
-  - {fileID: 1410153944}
   m_Father: {fileID: 1559547111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1712159413 stripped
@@ -85101,6 +84974,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1282908535}
     m_Modifications:
+    - target: {fileID: 409543910527480569, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 2597557065946230047, guid: 1b29b84f00925f340826d01e68ff9ecf, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -87795,6 +87672,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_26 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1214375187361540804, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dfd95c8c66194b3d9832bc8cc89df2c, type: 2}
     - target: {fileID: 6283280744659463471, guid: f27e7496f1c0e324fbdf39d31d919818, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -89397,4 +89278,4 @@ SceneRoots:
   - {fileID: 2108410450}
   - {fileID: 1093421241}
   - {fileID: 262234337}
-  - {fileID: 368045241}
+  - {fileID: 772654255}
