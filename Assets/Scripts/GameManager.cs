@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
 
     private void DrainPlayerHealth(){
         // Damage Player amount of Souls to Drain
-        if (SceneManager.GetActiveScene().name != "Casino") 
+        if (SceneManager.GetActiveScene().name != "Casino" && SceneManager.GetActiveScene().name != "TutorialLevel" ) 
         {
             DamagePlayer(3);
         }
@@ -227,6 +227,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Bet 3 applied: Harder Enemies, More Rewards");
                 break;
         }
+        SceneManager.LoadScene("Level1");
     }
 
 
