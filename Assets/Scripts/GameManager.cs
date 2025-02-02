@@ -141,28 +141,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // Optional: Add these features as needed
-    private int souls;
-    private float timeElapsed;
-    private int deathCount;
-
-    public void AddSouls(int amount)
-    {
-        souls += amount;
-        // Add UI update here
-    }
-
-    public bool SpendSouls(int amount)
-    {
-        if (souls >= amount)
-        {
-            souls -= amount;
-            // Add UI update here
-            return true;
-        }
-        return false;
-    }
-
     void Update()
     {
         // Example pause input
@@ -172,11 +150,6 @@ public class GameManager : MonoBehaviour
                 ResumeGame();
             else
                 PauseGame();
-        }
-
-        if (!isGamePaused)
-        {
-            timeElapsed += Time.deltaTime;
         }
     }
 
@@ -192,9 +165,6 @@ public class GameManager : MonoBehaviour
 
     // Getter methods
     public Vector3 GetCurrentCheckpoint() => currentCheckpoint;
-    public int GetSoulCount() => souls;
-    public float GetTimeElapsed() => timeElapsed;
-    public int GetDeathCount() => deathCount;
     public bool IsGamePaused() => isGamePaused;
     public int GetPlayerCurrentHealth() => playerCurrentHealth;
     public int GetPlayerMaxHealth() => playerMaxHealth;
