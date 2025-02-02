@@ -131,6 +131,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3468188643427199453, guid: 2aaab3652897e934db69b563293afee4, type: 3}
   m_PrefabInstance: {fileID: 3796505371418995852}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &328374333452780910 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3468188643427199458, guid: 2aaab3652897e934db69b563293afee4, type: 3}
+  m_PrefabInstance: {fileID: 3796505371418995852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5082831937156070751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,11 +192,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: dc9f3484ce4f67f419753556f57cae0f, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: dc9f3484ce4f67f419753556f57cae0f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: dc9f3484ce4f67f419753556f57cae0f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2708256854826796648}
   m_SourcePrefab: {fileID: 100100000, guid: dc9f3484ce4f67f419753556f57cae0f, type: 3}
+--- !u!1 &5082831937156103167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: dc9f3484ce4f67f419753556f57cae0f, type: 3}
+  m_PrefabInstance: {fileID: 5082831937156070751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2708256854826796648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082831937156103167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f381b4578fb5d4eab1d3e91031c0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakEffect: {fileID: 328374333452780910}
+  breakSound: {fileID: 0}
 --- !u!4 &5082831937156196319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: dc9f3484ce4f67f419753556f57cae0f, type: 3}
