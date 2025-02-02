@@ -175,7 +175,11 @@ public class GameManager : MonoBehaviour
 
     private void DrainPlayerHealth(){
         // Damage Player amount of Souls to Drain
-        DamagePlayer(1);
+        if (SceneManager.GetActiveScene().name != "Casino") 
+        {
+            DamagePlayer(1);
+        }
+        
     }
 
     // New method to update the player's betting choices
