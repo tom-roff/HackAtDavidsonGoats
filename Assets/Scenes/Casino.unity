@@ -639,8 +639,8 @@ MonoBehaviour:
     Reward: Environment does half
     damage'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
-  m_sharedMaterial: {fileID: -4407217040682469451, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1520,8 +1520,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Soul Magnet
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
-  m_sharedMaterial: {fileID: -4407217040682469451, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5283,8 +5283,8 @@ MonoBehaviour:
 
     Reward: Deal double damage'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
-  m_sharedMaterial: {fileID: -4407217040682469451, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5902,8 +5902,8 @@ MonoBehaviour:
 
     What path will you choose?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fbecbfc608c66498bb50ea340f5df67e, type: 2}
-  m_sharedMaterial: {fileID: 5505144423935285829, guid: fbecbfc608c66498bb50ea340f5df67e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6600,8 +6600,8 @@ MonoBehaviour:
 
     Reward: Start with double health/time'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
-  m_sharedMaterial: {fileID: -4407217040682469451, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9038,8 +9038,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Demonic Favor
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
-  m_sharedMaterial: {fileID: -4407217040682469451, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10189,8 +10189,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Glass Bones
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
-  m_sharedMaterial: {fileID: -4407217040682469451, guid: cb0b982a61bba46e1aaab944e7b4faed, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
