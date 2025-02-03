@@ -1,5 +1,6 @@
 <h1>🕰️ Borrowed Time </h1>
-A rogue-lite platformer where players bet on themselves to complete various challenges against a ghastly gambler.
+A side-scroller platformer where players bet on themselves to complete various challenges against a ghastly gambler. 
+This project was developed for Hack@Davidson 2025. The link to the Hackathon Devpost page can be found here: https://hack-davidson-2025.devpost.com/project-gallery.
 
 <h2>🎰 About the Game</h2>
 In Borrowed Time, time is your most valuable currency. Players navigate treacherous levels deep in the Paris Catacombs, fighting off enemies while a constantly decreasing timer looms over them. To survive, you must bet on your own performance before each level—gambling for more time or greater rewards, but at the risk of losing it all.
