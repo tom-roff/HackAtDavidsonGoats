@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     
     [Header("Health")]
     [SerializeField] private TMP_Text healthText;
+    private bool level2;
 
     void Awake()
     {

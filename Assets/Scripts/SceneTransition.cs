@@ -14,7 +14,7 @@ public class SceneTransition : MonoBehaviour
 
             else if(SceneManager.GetActiveScene().name == "Level1")
             {
-               SceneManager.LoadScene(sceneName:"Level2"); 
+               SceneManager.LoadScene(sceneName:"MainMenu"); 
             }
             
         }
