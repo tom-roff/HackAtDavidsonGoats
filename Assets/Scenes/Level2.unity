@@ -2579,6 +2579,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 862d58f6ca03fd8418fe4968840c545e, type: 3}
     volume: 1
     mixerGroup: {fileID: 0}
+  - soundName: BoneCrack
+    clip: {fileID: 8300000, guid: e00312c02c82048499bb48529a84136c, type: 3}
+    volume: 0.1
+    mixerGroup: {fileID: 0}
   audioSourcePrefab: {fileID: 8692114612890761137, guid: 69b1994fe2a3b1145a8fb8cc919d1445, type: 3}
 --- !u!4 &990746032
 Transform:

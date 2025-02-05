@@ -1,13 +1,9 @@
 using UnityEngine;
 
-public class Bone : MonoBehaviour
+public class BoneAttack : MonoBehaviour
 {
     [Header("Effects")]
     [SerializeField] private ParticleSystem impactParticles;
-
-    void Start()
-    {
-    }
 
     void OnCollisionEnter(Collision collision)
     {
