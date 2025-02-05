@@ -70,6 +70,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        SoundManager.Instance.PlaySound("SkeletonDeath", this.gameObject.transform.position);
         if (deathParticlePrefab != null)
         {
             Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);

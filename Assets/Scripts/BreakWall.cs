@@ -8,6 +8,7 @@ public class BreakWall : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SoundManager.Instance.PlaySound("BreakableWall", this.gameObject.transform.position);
             Instantiate(particles, breakableWall.transform.position, Quaternion.identity);
             Destroy(breakableWall);
         }
