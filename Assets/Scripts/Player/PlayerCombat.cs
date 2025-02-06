@@ -85,7 +85,8 @@ public class PlayerCombat : MonoBehaviour
         heldBone.SetActive(false);
 
         GameObject bone = Instantiate(boneProjectilePrefab, throwPoint.position, Quaternion.Euler(90, 0, 0));
-        if (bone.TryGetComponent(out Rigidbody rb))
+        Rigidbody rb = bone.GetComponent<Rigidbody>();
+        if (rb != null)
         {
             rb.linearVelocity = direction * throwForce;
         }

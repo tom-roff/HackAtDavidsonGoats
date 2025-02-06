@@ -19,32 +19,36 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashDeceleration = 80f;
     [SerializeField] private int airDashLimit = 1;
 
+    [Header("Knockback Settings")]
+    [SerializeField] private float knockbackResistance = 0f;
+
+    // Public properties with PascalCase
     public bool IsDashing { get; private set; }
     public bool IsGrounded { get; private set; }
     public bool IsFacingRight { get; private set; } = true;
 
     private CharacterController controller;
+    private Animator anim;
     private Vector3 velocity;
     private float lastMoveDirection = 1f;
     private float dashTimeLeft;
     private float currentDashSpeed;
     private float dashCooldownTimer;
     private int airDashesUsed;
-    private float currentSpeed;
     private Vector3 knockbackVelocity;
     private float knockbackTimeRemaining;
-    private float knockbackResistance;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = PlayerManager.Instance.PlayerAnimator;
     }
 
     private void Update()
     {
         HandleKnockback();
         HandleGroundCheck();
-        
+
         if (knockbackTimeRemaining <= 0)
         {
             HandleDash();
@@ -53,9 +57,12 @@ public class PlayerMovement : MonoBehaviour
                 HandleMovement();
                 HandleJump();
                 ApplyGravity();
+                anim.SetFloat("moveSpeed", Input.GetAxisRaw("Horizontal"));
+                anim.SetBool("IsGrounded", IsGrounded);
             }
         }
-
+        
+        // Clamp player to the Z=0 plane.
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
@@ -67,136 +74,106 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = 0;
     }
 
-void HandleZAxis()
+    private void HandleGroundCheck()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-    }
+        IsGrounded = controller.isGrounded;
 
-    void HandleGroundCheck()
-    {
-        isGrounded = controller.isGrounded;
-        
-        if (isGrounded && velocity.y < 0)
+        if (IsGrounded && velocity.y < 0)
         {
-            playerAnimator.ResetTrigger("Jump");
+            anim.ResetTrigger("Jump");
             velocity.y = -2f;
         }
     }
 
-    void HandleMovement()
+    private void HandleMovement()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
-        
-        // Store last move direction when moving
+
         if (horizontalInput != 0)
         {
             lastMoveDirection = Mathf.Sign(horizontalInput);
-            isFacingRight = horizontalInput > 0;
+            IsFacingRight = horizontalInput > 0;
         }
 
-        // Apply movement or dash speed
-        currentSpeed = isDashing ? currentDashSpeed : moveSpeed;
+        float currentSpeed = IsDashing ? dashSpeed : moveSpeed;
         Vector3 movement = new Vector3(horizontalInput * currentSpeed, 0, 0);
-        if(gameManager.movementSpeedDouble){
-            controller.Move(movement * 2 * Time.deltaTime);
+
+        // If a GameManager singleton exists and indicates double speed, apply the multiplier.
+        if (GameManager.Instance != null && GameManager.Instance.movementSpeedDouble)
+        {
+            controller.Move(movement * 2f * Time.deltaTime);
         }
-        else{
+        else
+        {
             controller.Move(movement * Time.deltaTime);
         }
-
     }
 
-    void HandleDash()
+    private void HandleDash()
     {
-        // Update dash cooldown
         if (dashCooldownTimer > 0)
-        {
             dashCooldownTimer -= Time.deltaTime;
-        }
 
-        // Reset air dashes when grounded
-        if (isGrounded)
-        {
+        if (IsGrounded)
             airDashesUsed = 0;
-        }
 
-        // Start dash
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && dashCooldownTimer <= 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !IsDashing && dashCooldownTimer <= 0)
         {
-            // Check air dash availability
-            if (!isGrounded && airDashesUsed >= airDashLimit)
-            {
+            if (!IsGrounded && airDashesUsed >= airDashLimit)
                 return;
-            }
 
-            isDashing = true;
-            playerAnimator.SetTrigger("Dash");
+            IsDashing = true;
+            anim.SetTrigger("Dash");
             dashTimeLeft = dashDuration;
             currentDashSpeed = dashSpeed;
             dashCooldownTimer = dashCooldown;
             velocity.y = 0;
 
-            // Track air dash usage
-            if (!isGrounded)
-            {
+            if (!IsGrounded)
                 airDashesUsed++;
-            }
         }
 
-        // Moved inside HandleDash method
-        if (isDashing)
+        if (IsDashing)
         {
             dashTimeLeft -= Time.deltaTime;
             currentDashSpeed = Mathf.MoveTowards(currentDashSpeed, moveSpeed, dashDeceleration * Time.deltaTime);
 
-            // Apply dash movement
             Vector3 dashMovement = new Vector3(lastMoveDirection * currentDashSpeed, 0, 0);
             controller.Move(dashMovement * Time.deltaTime);
 
-            // End dash when time is up
             if (dashTimeLeft <= 0)
             {
-                playerAnimator.ResetTrigger("Dash");
-                isDashing = false;
+                anim.ResetTrigger("Dash");
+                IsDashing = false;
             }
         }
     }
 
-    void HandleJump()
+    private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-            playerAnimator.SetTrigger("Jump");
+            anim.SetTrigger("Jump");
         }
     }
 
-    void ApplyGravity()
+    private void ApplyGravity()
     {
-        // Apply extra gravity when falling
         if (velocity.y < 0)
-        {
             velocity.y += gravity * fallMultiplier * Time.deltaTime;
-        }
         else
-        {
             velocity.y += gravity * Time.deltaTime;
-        }
-        
-        // Clamp fall speed to prevent excessive velocity
+
         velocity.y = Mathf.Max(velocity.y, maxFallSpeed);
-        
         controller.Move(velocity * Time.deltaTime);
     }
 
-
-    void HandleKnockback()
+    private void HandleKnockback()
     {
         if (knockbackTimeRemaining > 0)
         {
-            // Apply vertical anti-stick force
             velocity.y += 15f * Time.deltaTime;
-            
             controller.Move(knockbackVelocity * Time.deltaTime);
             knockbackVelocity = Vector3.Lerp(knockbackVelocity, Vector3.zero, knockbackResistance * Time.deltaTime);
             knockbackTimeRemaining -= Time.deltaTime;

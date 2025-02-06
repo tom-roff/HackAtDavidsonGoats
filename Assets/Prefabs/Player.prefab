@@ -403,6 +403,9 @@ GameObject:
   - component: {fileID: 4347866725880307872}
   - component: {fileID: 6704267348855414350}
   - component: {fileID: 7564198584338678041}
+  - component: {fileID: 4050576799494937276}
+  - component: {fileID: 2735607565108915467}
+  - component: {fileID: 2836104331316569073}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -466,7 +469,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4781999533663079446}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ff9f9b0f9b0f1941a6086a6177956e4, type: 3}
   m_Name: 
@@ -518,6 +521,67 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 2, z: 1}
   m_Center: {x: 0.03, y: 0, z: 0}
+--- !u!114 &4050576799494937276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781999533663079446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2040ba77a8c27499c42ddd0311c9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMesh: {fileID: 5916255303985081588}
+  playerHourglass: {fileID: 4233769153397012783}
+  heldBone: {fileID: 4260898081714856852}
+--- !u!114 &2735607565108915467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781999533663079446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed984fd856c2664e8f5e098f6c79438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  jumpForce: 2.7
+  gravity: -30
+  fallMultiplier: 2
+  maxFallSpeed: -25
+  dashSpeed: 30
+  dashDuration: 0.25
+  dashCooldown: 0.5
+  dashDeceleration: 80
+  airDashLimit: 1
+  knockbackResistance: 0
+--- !u!114 &2836104331316569073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781999533663079446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f1ff420ea1b2944b199b28d9f57ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  meleePointRight: {fileID: 5266265637840952763}
+  meleePointLeft: {fileID: 4579696612054937192}
+  meleePointUp: {fileID: 8850516334540604394}
+  meleePointDown: {fileID: 1194873808480534542}
+  boneProjectilePrefab: {fileID: 6278255132873241980, guid: 7c80dd7b7db42414d9db0c270992f6f1, type: 3}
+  heldBone: {fileID: 4260898081714856852}
+  throwForce: 20
+  boneCooldown: 1
 --- !u!1 &5394817613724020824
 GameObject:
   m_ObjectHideFlags: 0

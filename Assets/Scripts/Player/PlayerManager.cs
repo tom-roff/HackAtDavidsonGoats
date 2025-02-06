@@ -48,10 +48,14 @@ public class PlayerManager : MonoBehaviour
 
     private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        if(scene.name == "Level1")
+        if (scene.name == "Level1")
         {
             playerHourglass.SetActive(true);
         }
-        transform.position = GameObject.Find("InitialSpawn").transform.position;
+        Transform spawnPoint = GameObject.Find("InitialSpawn")?.transform;
+        if (spawnPoint != null)
+        {
+            transform.position = spawnPoint.position;
+        }
     }
 }
