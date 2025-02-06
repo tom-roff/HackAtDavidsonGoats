@@ -60,9 +60,8 @@ public class SoundManager : MonoBehaviour
             return;
         }
         
-        // Get an available AudioSource from the pool
         AudioSource source = GetAvailableAudioSource();
-        source.transform.position = position; // For 3D spatialization
+        source.transform.position = position; 
         source.clip = s.clip;
         source.volume = s.volume;
         if (s.mixerGroup != null)
@@ -72,7 +71,7 @@ public class SoundManager : MonoBehaviour
         source.Play();
     }
 
-    // Helper: If needed, this method can be extended to support PlayOneShot as well.
+
     public void PlaySound(string name)
     {
         PlaySound(name, Vector3.zero);
