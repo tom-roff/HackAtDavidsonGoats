@@ -37,11 +37,13 @@ public class PlayerMovement : MonoBehaviour
     private int airDashesUsed;
     private Vector3 knockbackVelocity;
     private float knockbackTimeRemaining;
+    private Transform playerModel;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = PlayerManager.Instance.PlayerAnimator;
+        playerModel = PlayerManager.Instance.PlayerMesh.transform;
     }
 
     private void Update()
@@ -57,17 +59,20 @@ public class PlayerMovement : MonoBehaviour
                 HandleMovement();
                 HandleJump();
                 ApplyGravity();
+                
+                // Update animator parameters
                 anim.SetFloat("moveSpeed", Input.GetAxisRaw("Horizontal"));
                 anim.SetBool("IsGrounded", IsGrounded);
             }
         }
         
-        // Clamp player to the Z=0 plane.
+        // Clamp player's Z-position to 0.
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     public void ApplyKnockback(Vector3 direction, float force, float duration)
     {
+        // Convert world direction to local direction
         Vector3 effectiveDirection = transform.InverseTransformDirection(direction);
         knockbackVelocity = new Vector3(effectiveDirection.x * force, 5f, 0);
         knockbackTimeRemaining = duration;
@@ -77,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
     private void HandleGroundCheck()
     {
         IsGrounded = controller.isGrounded;
-
         if (IsGrounded && velocity.y < 0)
         {
             anim.ResetTrigger("Jump");
@@ -91,14 +95,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (horizontalInput != 0)
         {
+            if ((horizontalInput > 0 && !IsFacingRight) || (horizontalInput < 0 && IsFacingRight))
+            {
+                Flip();
+            }
             lastMoveDirection = Mathf.Sign(horizontalInput);
-            IsFacingRight = horizontalInput > 0;
         }
 
         float currentSpeed = IsDashing ? dashSpeed : moveSpeed;
         Vector3 movement = new Vector3(horizontalInput * currentSpeed, 0, 0);
 
-        // If a GameManager singleton exists and indicates double speed, apply the multiplier.
         if (GameManager.Instance != null && GameManager.Instance.movementSpeedDouble)
         {
             controller.Move(movement * 2f * Time.deltaTime);
@@ -107,6 +113,14 @@ public class PlayerMovement : MonoBehaviour
         {
             controller.Move(movement * Time.deltaTime);
         }
+    }
+
+    private void Flip()
+    {
+        playerModel.localRotation = Quaternion.Euler(playerModel.localRotation.eulerAngles.x,
+                                                     playerModel.localRotation.eulerAngles.y + 180f,
+                                                     playerModel.localRotation.eulerAngles.z);
+        IsFacingRight = !IsFacingRight;
     }
 
     private void HandleDash()
@@ -137,7 +151,6 @@ public class PlayerMovement : MonoBehaviour
         {
             dashTimeLeft -= Time.deltaTime;
             currentDashSpeed = Mathf.MoveTowards(currentDashSpeed, moveSpeed, dashDeceleration * Time.deltaTime);
-
             Vector3 dashMovement = new Vector3(lastMoveDirection * currentDashSpeed, 0, 0);
             controller.Move(dashMovement * Time.deltaTime);
 

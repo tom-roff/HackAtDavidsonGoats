@@ -58,4 +58,6 @@ public class PlayerManager : MonoBehaviour
             transform.position = spawnPoint.position;
         }
     }
+
+    public GameObject PlayerMesh => playerMesh;
 }
