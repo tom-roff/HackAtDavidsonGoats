@@ -1291,6 +1291,10 @@ PrefabInstance:
       value: 64.34072
       objectReference: {fileID: 0}
     - target: {fileID: 7874976366523743733, guid: f72921b30eed50c49b43d85eb49f1af6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874976366523743733, guid: f72921b30eed50c49b43d85eb49f1af6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.414
       objectReference: {fileID: 0}
@@ -2581,7 +2585,11 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
   - soundName: BoneCrack
     clip: {fileID: 8300000, guid: e00312c02c82048499bb48529a84136c, type: 3}
-    volume: 0.1
+    volume: 0.4
+    mixerGroup: {fileID: 0}
+  - soundName: Bone
+    clip: {fileID: 8300000, guid: 5b4834303ab1a974695a8c0f06e4b59d, type: 3}
+    volume: 1
     mixerGroup: {fileID: 0}
   audioSourcePrefab: {fileID: 8692114612890761137, guid: 69b1994fe2a3b1145a8fb8cc919d1445, type: 3}
 --- !u!4 &990746032

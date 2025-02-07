@@ -51,25 +51,46 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // Public method to play a sound by name at a given position
-    public void PlaySound(string name, Vector3 position)
+    // Plays sound at a given position, start time, and end time
+    public void PlaySound(string name, Vector3 position, float startNormalized = 0f, float endNormalized = 1f)
     {
         if (!soundDict.TryGetValue(name, out Sound s))
         {
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
-        
+
         AudioSource source = GetAvailableAudioSource();
-        source.transform.position = position; 
+        source.transform.position = position;
         source.clip = s.clip;
         source.volume = s.volume;
         if (s.mixerGroup != null)
         {
             source.outputAudioMixerGroup = s.mixerGroup;
         }
+
+        // Ensures values are between 0 and 1
+        startNormalized = Mathf.Clamp01(startNormalized);
+        endNormalized = Mathf.Clamp01(endNormalized);
+
+        // Ensures end is greater than start
+        if (endNormalized <= startNormalized)
+        {
+            Debug.LogWarning("endNormalized was not greater than startNormalized, playing full clip instead.");
+            startNormalized = 0f;
+            endNormalized = 1f;
+        }
+
+        // Calculates actual start and end time
+        float startTime = s.clip.length * startNormalized;
+        float segmentDuration = s.clip.length * (endNormalized - startNormalized);
+
+        source.time = startTime;
         source.Play();
+
+        source.SetScheduledEndTime(AudioSettings.dspTime + segmentDuration);
     }
+
 
 
     public void PlaySound(string name)
