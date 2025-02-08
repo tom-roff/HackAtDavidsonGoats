@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Killbox : MonoBehaviour
 {
-    [SerializeField] int playerDamage = 20;
+    public int playerDamage = 20;
 
     protected GameManager gameManager;
     
@@ -14,10 +14,12 @@ public class Killbox : MonoBehaviour
             if (gameManager != null)
             {
                 // Always apply damage first
-                if(gameManager.environmentDealHalf){
+                if(gameManager.environmentDealHalf)
+                {
                     gameManager.DamagePlayer(playerDamage / 2);
                 }
-                else{
+                else
+                {
                     gameManager.DamagePlayer(playerDamage);
                 }
 
