@@ -65,6 +65,10 @@ PrefabInstance:
       value: BoneExplosion
       objectReference: {fileID: 0}
     - target: {fileID: 3468188643427199458, guid: 2aaab3652897e934db69b563293afee4, type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468188643427199458, guid: 2aaab3652897e934db69b563293afee4, type: 3}
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
@@ -129,3 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fca89fe676e834a84c05044f1d1bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBetweenSounds: 0.5

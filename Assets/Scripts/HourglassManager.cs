@@ -47,7 +47,7 @@ public class HourglassManager : MonoBehaviour
         //Set Bottom Accordingly .01 - .16 range
         float bottomConversion = .16f - ((currentSoulFloat/maxSoulFloat)*.15f) + .01f;
         newBottomInst.SetFloat("_soulEmptyAmount", bottomConversion);
-        Debug.Log("Material's soulEmptyAmount: " + newBottomInst.GetFloat("_soulEmptyAmount"));
+        // Debug.Log("Material's soulEmptyAmount: " + newBottomInst.GetFloat("_soulEmptyAmount"));
 
         topMaterial.SetShaderPassEnabled("ForwardLit", true);
         newBottomInst.SetShaderPassEnabled("ForwardLit", true);
