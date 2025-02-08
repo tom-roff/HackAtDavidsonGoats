@@ -17,7 +17,7 @@ public class BoneClatter : MonoBehaviour
 
     private IEnumerator PlaySoundWithDelay(GameObject other)
     {
-        delayBetweenSounds = Random.Range(1, 2) / 10f;
+        delayBetweenSounds = Random.Range(2, 3) / 10f;
         
         canPlaySound = false;
 

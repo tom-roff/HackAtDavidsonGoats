@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
     }
 
     // Plays sound at a given position, start time, and end time
-    public void PlaySound(string name, Vector3 position, float startNormalized = 0f, float endNormalized = 1f)
+    public void PlaySound(string name, Vector3 position, float startNormalized = 0f, float endNormalized = 1f, bool randomPitch = false)
     {
         if (!soundDict.TryGetValue(name, out Sound s))
         {
@@ -84,6 +84,11 @@ public class SoundManager : MonoBehaviour
         // Calculates actual start and end time
         float startTime = s.clip.length * startNormalized;
         float segmentDuration = s.clip.length * (endNormalized - startNormalized);
+
+        // Calculates pitch of sound
+        float pitch = Random.Range(15, 20);
+        // float pitch = 10f;
+        source.pitch = pitch / 10f;
 
         source.time = startTime;
         source.Play();
