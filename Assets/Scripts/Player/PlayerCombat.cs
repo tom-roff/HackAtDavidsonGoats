@@ -4,55 +4,69 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [Header("Combat Settings")]
+    // **** Melee Settings ****
+    [Header("Melee Settings")]
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform meleePointRight;
     [SerializeField] private Transform meleePointLeft;
     [SerializeField] private Transform meleePointUp;
     [SerializeField] private Transform meleePointDown;
+    [SerializeField] private float meleeRange = 1.0f;
+    [SerializeField] private int meleeDamage = 10;
+    [SerializeField] private float meleeCooldown = 0.5f;
 
-    [Header("Bone Settings")]
-    [SerializeField] private GameObject boneProjectilePrefab;
-    [SerializeField] private GameObject heldBone;
-    [SerializeField] private float throwForce = 10f;
-    [SerializeField] private float boneCooldown = 1f;
+    // **** Ranged Settings ****
+    [Header("Ranged Settings")]
+    // This prefab can change based on the player's equipped ranged weapon.
+    [SerializeField] private GameObject equippedProjectilePrefab;
+    [SerializeField] private float rangedForce = 10f;
+    [SerializeField] private float rangedCooldown = 1f;
 
-    private bool hasBone = true;
-    private float meleeTimer;
+    // **** Internal Variables ****
+    private float meleeTimer = 0f;
+    private float rangedTimer = 0f;
     private PlayerManager playerManager;
+    
+    // Current mode: true for melee, false for ranged.
+    private bool isMeleeMode = true;
 
     private void Start()
     {
         playerManager = PlayerManager.Instance;
-        meleeTimer = 0f;
     }
 
     private void Update()
     {
+        // Update cooldown timers.
         if (meleeTimer > 0)
-        {
             meleeTimer -= Time.deltaTime;
-        }
-        else
+        if (rangedTimer > 0)
+            rangedTimer -= Time.deltaTime;
+
+        // Do not allow combat in non-combat scenes.
+        if (IsInNonCombatScene())
+            return;
+
+        // Toggle between melee and ranged mode with Q.
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            playerManager.PlayerAnimator.ResetTrigger("Attack");
+            isMeleeMode = !isMeleeMode;
+            Debug.Log("Switched to " + (isMeleeMode ? "Melee Mode" : "Ranged Mode"));
         }
 
-        HandleMelee();
-    }
-
-    private void HandleMelee()
-    {
-        if (IsInNonCombatScene()) return;
-
-        if (Input.GetMouseButtonDown(0) && meleeTimer <= 0 && hasBone)
+        // Use left mouse button to attack.
+        if (Input.GetMouseButtonDown(0))
         {
-            Vector3 attackDirection;
-            Transform throwPoint = DetermineThrowPoint(out attackDirection);
-
-            ThrowBone(throwPoint, attackDirection);
-            meleeTimer = boneCooldown;
-            playerManager.PlayerAnimator.SetTrigger("Attack");
+            if (isMeleeMode)
+            {
+                if (meleeTimer <= 0)
+                    HandleMelee();
+            }
+            else
+            {
+                if (rangedTimer <= 0)
+                    HandleRanged();
+            }
         }
     }
 
@@ -62,7 +76,50 @@ public class PlayerCombat : MonoBehaviour
         return sceneName == "Casino" || sceneName == "TutorialLevel" || sceneName == "MainMenu";
     }
 
-    private Transform DetermineThrowPoint(out Vector3 attackDirection)
+    // **** Melee Attack ****
+    private void HandleMelee()
+    {
+        // Determine the direction and corresponding spawn point.
+        Vector3 attackDirection;
+        Transform attackPoint = DetermineAttackPoint(out attackDirection);
+
+        // Cast a ray from the spawn point in the attack direction.
+        RaycastHit hit;
+        if (Physics.Raycast(attackPoint.position, attackDirection, out hit, meleeRange, enemyLayer))
+        {
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(meleeDamage);
+            }
+        }
+
+        meleeTimer = meleeCooldown;
+        // playerManager.PlayerAnimator.SetTrigger("MeleeAttack");
+    }
+
+    // **** Ranged Attack ****
+    private void HandleRanged()
+    {
+        // Determine the direction and corresponding spawn point.
+        Vector3 attackDirection;
+        Transform attackPoint = DetermineAttackPoint(out attackDirection);
+
+        // Instantiate the projectile at the same attack point.
+        GameObject projectile = Instantiate(equippedProjectilePrefab, attackPoint.position, Quaternion.identity);
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = attackDirection * rangedForce;
+        }
+
+        rangedTimer = rangedCooldown;
+        // playerManager.PlayerAnimator.SetTrigger("RangedAttack");
+    }
+
+    // Returns the proper spawn transform based on input or player's facing.
+    // If W or S is pressed, it uses the upward or downward transform; otherwise left/right.
+    private Transform DetermineAttackPoint(out Vector3 attackDirection)
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -79,25 +136,28 @@ public class PlayerCombat : MonoBehaviour
         return playerManager.Movement.IsFacingRight ? meleePointRight : meleePointLeft;
     }
 
-    private void ThrowBone(Transform throwPoint, Vector3 direction)
+    // Draws rays from the melee points for debugging purposes.
+    private void OnDrawGizmosSelected()
     {
-        hasBone = false;
-        heldBone.SetActive(false);
-
-        GameObject bone = Instantiate(boneProjectilePrefab, throwPoint.position, Quaternion.Euler(90, 0, 0));
-        Rigidbody rb = bone.GetComponent<Rigidbody>();
-        if (rb != null)
+        if (meleePointRight != null)
         {
-            rb.linearVelocity = direction * throwForce;
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(meleePointRight.position, Vector3.right * meleeRange);
         }
-
-        StartCoroutine(ResetBone());
-    }
-
-    private IEnumerator ResetBone()
-    {
-        yield return new WaitForSeconds(boneCooldown);
-        hasBone = true;
-        heldBone.SetActive(true);
+        if (meleePointLeft != null)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(meleePointLeft.position, Vector3.left * meleeRange);
+        }
+        if (meleePointUp != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(meleePointUp.position, Vector3.up * meleeRange);
+        }
+        if (meleePointDown != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawRay(meleePointDown.position, Vector3.down * meleeRange);
+        }
     }
 }

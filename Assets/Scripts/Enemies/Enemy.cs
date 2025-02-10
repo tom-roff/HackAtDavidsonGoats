@@ -104,7 +104,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void HandlePlayerCollision(Collider other)
     {
-        if (other.CompareTag("Bone"))
+        if (other.CompareTag("Projectile"))
         {
             Destroy(other.gameObject);
             TakeDamage(1);
